@@ -113,13 +113,6 @@ export const RestaurantForm: FC<Props> = ({ opened, onClose, restaurant, ...rest
                         withAsterisk
                         {...getInputProps("location")}
                     />
-                    <TextInput
-                        disabled={loading}
-                        icon={<IconPhone color={theme.colors.dark[4]} />}
-                        label={t("inputContactNoLabel")}
-                        placeholder={t("inputContactNoPlaceholder")}
-                        {...getInputProps("contactNo")}
-                    />
                     <ImageUpload
                         disabled={loading}
                         error={!!errors.imagePath}

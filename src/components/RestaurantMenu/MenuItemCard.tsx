@@ -29,7 +29,6 @@ const useStyles = createStyles((theme, { imageColor }: StyleProps, getRef) => {
         cardDescWrap: { flex: 1, gap: 0, overflow: "hidden", padding: theme.spacing.lg },
         cardImage: { height: 150, ref: image, transition: "transform 500ms ease", width: 150 },
         cardImageWrap: {
-            borderRadius: theme.radius.lg,
             height: 150,
             overflow: "hidden",
             position: "relative",
@@ -41,7 +40,7 @@ const useStyles = createStyles((theme, { imageColor }: StyleProps, getRef) => {
                     theme.colorScheme === "light" ? theme.fn.darken(bgColor, 0.05) : theme.fn.lighten(bgColor, 0.05),
                 boxShadow: theme.shadows.xs,
             },
-            backgroundColor: bgColor,
+            backgroundColor: "#F5F7FA",
             border: `1px solid ${theme.colors.dark[3]}`,
             color: theme.colors.dark[8],
             cursor: "pointer",
@@ -55,11 +54,17 @@ const useStyles = createStyles((theme, { imageColor }: StyleProps, getRef) => {
         cardItemTitle: { WebkitLineClamp: 1 },
         cardText: {
             WebkitBoxOrient: "vertical",
-            color: theme.black,
+            color: "#3B3B3B",
             display: "-webkit-box",
             overflow: "hidden",
             textOverflow: "ellipsis",
             whiteSpace: "normal",
+        },
+        increase: {
+            color: "#7E7E7E",
+            fontSize: 12,
+            marginLeft: 5,
+            textDecoration: "line-through",
         },
     };
 });
@@ -73,6 +78,7 @@ interface Props {
 export const MenuItemCard: FC<Props> = ({ item }) => {
     const { classes, cx } = useStyles({ imageColor: item?.image?.color });
     const [modalVisible, setModalVisible] = useState(false);
+    const priceWithIncrease = item.price * 1.25; // preço com acréscimo de 25%
     return (
         <>
             <Paper
@@ -100,8 +106,9 @@ export const MenuItemCard: FC<Props> = ({ item }) => {
                     <Text className={cx(classes.cardText, classes.cardItemTitle)} size="lg" weight={700}>
                         {item.name}
                     </Text>
-                    <Text color="red" size="sm">
-                        {item.price}
+                    <Text color="#55A977" size="sm">
+                        R$ {item.price}
+                        <span className={classes.increase}> R$ {priceWithIncrease} </span>
                     </Text>
                     <Text className={cx(classes.cardText, classes.cardItemDesc)} opacity={0.7} size="xs">
                         {item.description}

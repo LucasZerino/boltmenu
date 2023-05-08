@@ -51,8 +51,8 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
                         />
                     </Box>
                 )}
-                <Text color="red" mt="sm" size="lg">
-                    {menuItem?.price}
+                <Text color="#55A977" mt="sm" size="lg">
+                    R$ {menuItem?.price}
                 </Text>
                 <Text color={theme.black} opacity={0.6}>
                     {menuItem?.description}
