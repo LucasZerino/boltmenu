@@ -1,0 +1,27 @@
+version: "3"
+services:
+  app:
+    container_name: boltmenu
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3996:3000"
+    environment:
+      - DATABASE_URL=mysql://root:example@mysql:3306/mydb
+    depends_on:
+      - mysql
+    command: npm start
+  mysql:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: mydb
+      TZ: "America/Sao_Paulo"
+    ports:
+      - "3396:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+volumes:
+  mysql-data:
