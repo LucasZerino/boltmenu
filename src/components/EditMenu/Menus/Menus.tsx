@@ -115,7 +115,7 @@ export const Menus: FC<Props> = ({ restaurantId, selectedMenu, setSelectedMenu }
                     </Center>
                 )}
                 {!menusLoading && !selectedMenu && (
-                    <Empty height={300} text="Get started by adding the first menu for your restaurant" />
+                    <Empty height={300} text="Comece adicionando o primeiro menu para o seu restaurante" />
                 )}
                 {!menusLoading && menus?.length < Number(env.NEXT_PUBLIC_MAX_MENUS_PER_RESTAURANT) && (
                     <Box

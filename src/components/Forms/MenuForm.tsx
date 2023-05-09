@@ -91,12 +91,6 @@ export const MenuForm: FC<Props> = ({ opened, onClose, restaurantId, menu: menuI
                         withAsterisk
                         {...getInputProps("name")}
                     />
-                    <TextInput
-                        disabled={loading}
-                        label={t("inputTimeLabel")}
-                        placeholder={t("inputTimePlaceholder")}
-                        {...getInputProps("availableTime")}
-                    />
                     <Group mt="md" position="right">
                         <Button data-testid="save-menu-form" loading={loading} px="xl" type="submit">
                             {tCommon("save")}

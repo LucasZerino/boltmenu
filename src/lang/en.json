@@ -10,7 +10,7 @@
         "createSuccess": "Criação realizada com sucesso",
         "updateSuccess": "Atualização realizada com sucesso",
         "privacyPolicy": "Política de privacidade",
-        "terms&Conditions": "Termos e condições",
+        "terms&Conditions": "Termos",
         "footerCopyright": "© 2023 Direitos autorais: Bolt Menu",
         "login": "Entrar",
         "logout": "Sair",
@@ -71,39 +71,39 @@
             ]
         },
         "features": {
-            "tagLine": "Why Menufic?",
-            "title": "Build your restaurant's menu with ease",
-            "subTitle": " Menufic has several awesome features that makes it perfect to take your restaurant's menu to the next level",
+            "tagLine": "Por que escolher o Bolt Menu?",
+            "title": "Construa o menu do seu restaurante com facilidade",
+            "subTitle": "O Bolt Menu possui várias funcionalidades incríveis que tornam perfeito para levar o menu do seu restaurante para o próximo nível.",
             "featuresItems": [
                 {
                     "key": "webOptimized",
-                    "title": "Optimized for the web",
-                    "description": "The generated menu page has been optimized for search engines as well as for social media crawlers and this will assure that your restaurant menu has a higher reach."
+                    "title": "Otimizado para a web",
+                    "description": "A página do menu gerado foi otimizada para mecanismos de pesquisa e rastreadores de mídia social, o que garantirá que o menu do seu restaurante tenha um alcance maior."
                 },
                 {
                     "key": "themeSupport",
-                    "title": "Dark and Light themes",
-                    "description": "As Menufic supports both Light and dark themes, you and your restaurant customers will have the independence to switch between these two modes."
+                    "title": "Temas claros e escuros",
+                    "description": "Como o Bolt Menu suporta temas claros e escuros, você e seus clientes do restaurante terão a independência de alternar entre esses dois modos."
                 },
                 {
                     "key": "banners",
-                    "title": "Promotions using banners",
-                    "description": "Add multiple banners to your restaurant which can help you to convey details such as offers or promotions to your customers."
+                    "title": "Promoções usando banners",
+                    "description": "Adicione vários banners ao seu restaurante, que podem ajudá-lo a transmitir detalhes, como ofertas ou promoções, aos seus clientes."
                 },
                 {
                     "key": "organize",
-                    "title": "Organize your data easily",
-                    "description": "Menufic provides an intuitive interface to easily manage your menus. Each restaurant can have multiple menus with multiple sub categories."
+                    "title": "Organize seus dados facilmente",
+                    "description": "O Bolt Menu fornece uma interface intuitiva para gerenciar facilmente seus menus. Cada restaurante pode ter vários menus com várias subcategorias."
                 },
                 {
                     "key": "responsiveDesign",
-                    "title": "View from any device",
-                    "description": "Customers can view your digital menu from the safety of their personal devices at any time, without any app install. The menu is built to adapt its layout based on the user's device."
+                    "title": "Visualização em qualquer dispositivo",
+                    "description": "Os clientes podem visualizar seu menu digital a qualquer momento, sem instalar nenhum aplicativo, a partir de seus dispositivos pessoais com segurança. O menu é construído para se adaptar ao layout com base no dispositivo do usuário."
                 },
                 {
                     "key": "qrCode",
                     "title": "QR code",
-                    "description": "Generate a QR code, print and share it with your customers by simply placing it on your restaurant tables, entrance, food packaging or delivery vehicles."
+                    "description": "Gere um código QR, imprima e compartilhe com seus clientes, simplesmente colocando-o em suas mesas de restaurante, entrada, embalagens de alimentos ou veículos de entrega."
                 }
             ]
         },
@@ -113,73 +113,74 @@
             "buttonLabel": "Ver exemplo"
         },
         "pricing": {
-            "title": "Pricing",
+            "title": "Preços",
             "freeTier": {
-                "label": "Free",
-                "maxRestaurantCount": "Create up to {count} restaurants",
-                "maxMenuCount": "Add up to {count} menus per restaurant",
-                "maxCategoryCount": "Add up to {count} categories per menu",
-                "maxMenuItemCount": "Add up to {count} items per category",
-                "maxBannerCount": "Add up to {count} banners per restaurant",
-                "supportType": "Basic support",
-                "getStartedBtnLabel": "Get Started"
+            "label": "Grátis",
+            "maxRestaurantCount": "Crie até {count} restaurantes",
+            "maxMenuCount": "Adicione até {count} menus por restaurante",
+            "maxCategoryCount": "Adicione até {count} categorias por menu",
+            "maxMenuItemCount": "Adicione até {count} itens por categoria",
+            "maxBannerCount": "Adicione até {count} banners por restaurante",
+            "supportType": "Suporte básico",
+            "getStartedBtnLabel": "Comece Agora"
             },
             "enterpriseTier": {
-                "label": "Enterprise",
-                "maxRestaurantCount": "Create any number of restaurants",
-                "maxMenuCount": "Add any number of menus per restaurant",
-                "maxCategoryCount": "Add any number of categories per menu",
-                "maxMenuItemCount": "Add any number of items per category",
-                "maxBannerCount": "Add any number of banners per restaurant",
-                "supportType": "Basic support",
-                "contactUsButtonLabel": "Contact us"
+            "label": "Empresarial",
+            "maxRestaurantCount": "Crie qualquer número de restaurantes",
+            "maxMenuCount": "Adicione qualquer número de menus por restaurante",
+            "maxCategoryCount": "Adicione qualquer número de categorias por menu",
+            "maxMenuItemCount": "Adicione qualquer número de itens por categoria",
+            "maxBannerCount": "Adicione qualquer número de banners por restaurante",
+            "supportType": "Suporte básico",
+            "contactUsButtonLabel": "Entre em contato"
             }
-        },
-        "contactUs": {
-            "title": "Get in touch",
-            "name": { "label": "Name", "placeholder": "Your name" },
-            "email": { "label": "Email", "placeholder": "user@email.com" },
-            "subject": { "label": "Subject", "placeholder": "Subject" },
-            "message": { "label": "Message", "placeholder": "Your message" },
-            "submitButtonLabel": "Send message",
-            "successToastTitle": "Successfully submitted your message",
-            "successToastDesc": "Our team will get in touch with you soon.",
-            "errorToastTitle": "Failed to submit your message",
-            "errorToastDesc": "Please try again in a while"
-        },
-        "aboutUs": {
-            "title": "About Us",
-            "subtitle": {
-                "line1": "Menufic is an ",
-                "line2": "open source ",
-                "line3": "project built with "
             },
-            "goal": "Our goal is to provide a simple and effective solution that restaurants could use to improve their reach and enhance how their customers interact with them.",
-            "appreciation": "We highly appreciate any feedback or contribution that could help us improve.",
-            "githubButtonLabel": "Github"
-        }
+        
+"contactUs": {
+    "title": "Entre em contato",
+    "name": { "label": "Nome", "placeholder": "Seu nome" },
+    "email": { "label": "E-mail", "placeholder": "user@email.com" },
+    "subject": { "label": "Assunto", "placeholder": "Assunto" },
+    "message": { "label": "Mensagem", "placeholder": "Sua mensagem" },
+    "submitButtonLabel": "Enviar mensagem",
+    "successToastTitle": "Mensagem enviada com sucesso",
+    "successToastDesc": "Nossa equipe entrará em contato em breve.",
+    "errorToastTitle": "Falha ao enviar a mensagem",
+    "errorToastDesc": "Por favor, tente novamente mais tarde"
+    },
+    "aboutUs": {
+    "title": "Sobre nós",
+    "subtitle": {
+    "line1": "Bolt Menu é um ",
+    "line2": "projeto de código aberto ",
+    "line3": "construído com "
+    },
+    "goal": "Nosso objetivo é fornecer uma solução simples e eficaz que restaurantes possam usar para melhorar sua presença on-line e a forma como seus clientes interagem com eles.",
+    "appreciation": "Nós agradecemos qualquer feedback ou contribuição que possa nos ajudar a melhorar.",
+    "githubButtonLabel": "Github"
+    }
     },
     "menu": {
-        "noMenusForRestaurant": "There aren't any menus available for this restaurant. Try checking out later",
-        "noItemsForMenu": "There aren't any menu items for the chosen restaurant menu. Try checking out later.",
-        "noDetailsAvailable": "This restaurant details are unavailable at the moment. We are sorry for the inconvenience. Please try again in a while",
-        "seoTitle": "{name} Menu",
+        "noMenusForRestaurant": "Não há menus disponíveis para este restaurante. Tente verificar mais tarde.",
+        "noItemsForMenu": "Não há itens de menu disponíveis para o menu escolhido do restaurante. Tente verificar mais tarde.",
+        "noDetailsAvailable": "Os detalhes deste restaurante estão indisponíveis no momento. Pedimos desculpas pelo inconveniente. Por favor, tente novamente mais tarde.",
+        "seoTitle": "Menu {name}",
         "seoDescription": {
-            "restaurantName": "Menu of restaurant {name}",
-            "restaurantLocation": "Location: {location}.",
-            "restaurantContactNo": " Contact Number: {contactNo}.",
-            "menufic": "This menu was generated using Menufic.com"
+        "restaurantName": "Menu do restaurante {name}",
+        "restaurantLocation": "Localização: {location}.",
+        "restaurantContactNo": " Número de contato: {contactNo}.",
+        "menufic": "Este menu foi gerado usando Bolt Menu"
         }
-    },
-    "preview": {
-        "seoTitle": "Restaurant Preview",
-        "seoDescription": "Preview how the published restaurant menu would look like",
-        "alertTitle": "Preview mode",
-        "alertContent": "This preview URL is not meant to be shared with anyone.",
-        "alertDesc": " Once you have finalized your changes, you will be able to publish your restaurant menu and generate a sharable URL which can then be shared with your customers."
-    },
+        },
+        "preview": {
+        "seoTitle": "Pré-visualização do restaurante",
+        "seoDescription": "Veja como o menu do restaurante publicado ficará",
+        "alertTitle": "Modo de pré-visualização",
+        "alertContent": "Este URL de pré-visualização não deve ser compartilhado com ninguém.",
+        "alertDesc": "Assim que você tiver finalizado suas alterações, poderá publicar o menu do seu restaurante e gerar um URL compartilhável que poderá ser compartilhado com seus clientes."
+        },
     "dashboard": {
-        "noContent": "whoops, nothing to see here ...",
+        "noContent": "ops, nada para ver aqui ...",
         "imageUpload": {
             "titleLabel": "Imagem",
             "uploadHelperText": "Arraste uma imagem jpeg aqui ou clique para selecionar um arquivo de imagem jpeg",
@@ -223,8 +224,8 @@
             "updateModalTitle": "Atualizar Menu",
             "updateError": "Falha ao atualizar menu",
             "updateSuccessDesc": "Detalhes do menu {data.name} atualizados com sucesso",
-            "inputNameLabel": "Nome",
-            "inputNamePlaceholder": "Nome do Menu",
+            "inputNameLabel": "Crie uma sessão no cardápio",
+            "inputNamePlaceholder": "Nome do Sessão",
             "inputTimeLabel": "Horário de Funcionamento",
             "inputTimePlaceholder": "10h00 - 21h00"
             },
@@ -263,7 +264,7 @@
                 "inputNameLabel": "Nome",
                 "inputNamePlaceholder": "Nome do Item",
                 "inputPriceLabel": "Preço",
-                "inputPricePlaceholder": "$10.00",
+                "inputPricePlaceholder": "R$10.00",
                 "inputDescriptionLabel": "Descrição"
                 }
                 },
@@ -297,7 +298,7 @@
                     "seoDescription": "Gerencie os menus e banners do seu restaurante",
                     "restaurantFetchError": "Falha ao recuperar detalhes do restaurante",
                     "breadcrumb": "Restaurante",
-                    "menuCardTitle": "Menus",
+                    "menuCardTitle": "Cardápios",
                     "menuCardSubTitle": "Gerencie as sessões, categorias e itens do cardápio",
                     "bannersCardTitle": "Banners",
                     "bannersCardSubTitle": "Gerencie os banners que podem ser usados para exibir conteúdo promocional no menu do seu restaurante",
@@ -330,428 +331,428 @@
                     "fetchError": "Falha ao recuperar restaurantes publicados",
                     "noContent": "Não há restaurantes publicados"
                     }},
-    "privacyPolicy": {
-        "seoDescription": "This privacy policy page contains information on how Menufic handles customer data",
-        "lastUpdated": "Last updated: {date}",
-        "desc1": "This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.",
-        "desc2": "We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy.",
-        "interpretationAndDefinitions": {
-            "title": "Interpretation and Definitions",
-            "interpretation": {
-                "title": "Interpretation",
-                "content": "The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural."
-            },
-            "definitions": {
-                "title": "Definitions",
-                "subTitle": "For the purposes of this Privacy Policy:",
-                "items": [
+                    "privacyPolicy": {
+                        "seoDescription": "Esta página de política de privacidade contém informações sobre como o Bolt Menu lida com os dados dos clientes",
+                        "lastUpdated": "Última atualização: {date}",
+                        "desc1": "Esta Política de Privacidade descreve nossas políticas e procedimentos sobre a coleta, uso e divulgação de suas informações quando você usa o serviço e informa sobre seus direitos de privacidade e como a lei o protege.",
+                        "desc2": "Usamos seus dados pessoais para fornecer e melhorar o serviço. Ao usar o serviço, você concorda com a coleta e o uso de informações de acordo com esta Política de Privacidade.",
+                        "interpretationAndDefinitions": {
+                        "title": "Interpretação e definições",
+                        "interpretation": {
+                        "title": "Interpretação",
+                        "content": "As palavras cuja letra inicial é maiúscula têm significados definidos nas seguintes condições. As seguintes definições terão o mesmo significado, independentemente de aparecerem no singular ou no plural."
+                        },
+                        "definitions": {
+                        "title": "Definições",
+                        "subTitle": "Para fins desta Política de Privacidade:",
+                        "items": [
                     {
                         "key": "Account",
-                        "rest": "means a unique account created for You to access our Service or parts of our Service."
+                        "rest": "significa uma conta exclusiva criada para você acessar nosso serviço ou partes do nosso serviço."
                     },
                     {
-                        "key": "Company",
-                        "rest": "(referred to as either 'the Company', 'We', 'Us' or 'Our' in this Agreement) refers to Menufic."
+                        "key": "Empresa",
+                        "rest": "(referida como 'a Empresa', 'Nós', 'Nosso' ou 'Nossa' neste acordo) refere-se ao Bolt Menu."
                     },
                     {
                         "key": "Cookies",
-                        "rest": "are small files that are placed on Your computer, mobile device or any other device by a website, containing the details of Your browsing history on that website among its many uses."
+                        "rest": "são pequenos arquivos que são colocados em seu computador, dispositivo móvel ou qualquer outro dispositivo por um site, contendo os detalhes do seu histórico de navegação naquele site, entre muitos outros usos."
                     },
                     {
-                        "key": "Country",
-                        "rest": "refers to: Sri Lanka"
+                        "key": "País",
+                        "rest": "refere-se: Brasil"
                     },
                     {
-                        "key": "Device",
-                        "rest": "means any device that can access the Service such as a computer, a cellphone or a digital tablet."
+                        "key": "Dispositivo",
+                        "rest": "significa qualquer dispositivo que possa acessar o serviço, como um computador, um celular ou um tablet digital."
                     },
                     {
-                        "key": "Personal Data",
-                        "rest": "is any information that relates to an identified or identifiable individual."
+                        "key": "Dados pessoais",
+                        "rest": "são quaisquer informações que se relacionam com uma pessoa física identificada ou identificável."
                     },
                     {
-                        "key": "Service",
-                        "rest": "refers to the Website."
+                        "key": "Serviço",
+                        "rest": "refere-se ao site."
                     },
                     {
-                        "key": "Service Provider",
-                        "rest": "means any natural or legal person who processes the data on behalf of the Company. It refers to third-party companies or individuals employed by the Company to facilitate the Service, to provide the Service on behalf of the Company, to perform services related to the Service or to assist the Company in analyzing how the Service is used."
+                        "key": "Prestador de serviços",
+                        "rest": "significa qualquer pessoa física ou jurídica que processe os dados em nome da Empresa. Refere-se a empresas ou indivíduos de terceiros empregados pela Empresa para facilitar o Serviço, fornecer o Serviço em nome da Empresa, executar serviços relacionados ao Serviço ou ajudar a Empresa a analisar como o Serviço é usado."
                     },
                     {
-                        "key": "Usage Data",
-                        "rest": "refers to data collected automatically, either generated by the use of the Service or from the Service infrastructure itself (for example, the duration of a page visit)."
+                        "key": "Dados de uso",
+                        "rest": "refere-se a dados coletados automaticamente, gerados pelo uso do Serviço ou pela própria infraestrutura do Serviço (por exemplo, a duração de uma visita à página)."
                     },
                     {
-                        "key": "Website",
-                        "rest": "refers to Menufic, accessible from "
+                        "key": "Site",
+                        "rest": "refere-se ao Bolt Menu, acessível em "
                     },
                     {
-                        "key": "You",
-                        "rest": "means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable."
+                        "key": "Você",
+                        "rest": "refere-se ao indivíduo que acessa ou usa o serviço, ou à empresa ou outra entidade jurídica em nome da qual tal indivíduo está acessando ou usando o serviço, conforme aplicável."
                     }
                 ]
             }
         },
         "collectingPersonalData": {
-            "title": "Collecting and Using Your Personal Data",
+            "title": "Coleta e uso dos seus dados pessoais",
             "dataTypes": {
-                "title": "Types of Data Collected",
+                "title": "Tipos de dados coletados",
                 "personalData": {
-                    "title": "Personal Data",
-                    "desc": "While using Our Service, We may ask You to provide Us with certain personally identifiable information that can be used to contact or identify You. Personally identifiable information may include, but is not limited to:",
-                    "types": ["Email address", "First name and last name", "Usage Data"]
+                "title": "Dados pessoais",
+                "desc": "Ao usar nosso serviço, podemos solicitar que você nos forneça certas informações pessoalmente identificáveis que possam ser usadas para entrar em contato ou identificá-lo. As informações pessoalmente identificáveis podem incluir, entre outras:",
+                "types": ["Endereço de e-mail", "Nome e sobrenome", "Dados de uso"]
                 },
                 "usageData": {
-                    "title": "Usage Data",
-                    "desc": "Usage Data is collected automatically when using the Service.",
+                    "title": "Dados de uso",
+                    "desc": "Os dados de uso são coletados automaticamente ao usar o serviço.",
                     "items": [
-                        "Usage Data may include information such as Your Device's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that You visit, the time and date of Your visit, the time spent on those pages, unique device identifiers and other diagnostic data.",
-                        "When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use, unique device identifiers and other diagnostic data.",
-                        "We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device."
+                    "Os dados de uso podem incluir informações como o endereço de Protocolo de Internet (por exemplo, endereço IP) do seu dispositivo, tipo de navegador, versão do navegador, as páginas do nosso serviço que você visita, a data e hora da sua visita, o tempo gasto nessas páginas, identificadores exclusivos de dispositivo e outros dados diagnósticos.",
+                    "Ao acessar o serviço por meio de um dispositivo móvel, podemos coletar automaticamente algumas informações, incluindo, entre outras, o tipo de dispositivo móvel que você usa, a ID exclusiva do seu dispositivo móvel, o endereço IP do seu dispositivo móvel, seu sistema operacional móvel, o tipo de navegador de Internet móvel que você usa, identificadores exclusivos de dispositivo e outros dados diagnósticos.",
+                    "Também podemos coletar informações que o seu navegador envia sempre que você visita nosso serviço ou quando você acessa o serviço por meio de um dispositivo móvel."
                     ]
-                },
-                "trackingCookies": {
-                    "title": "Tracking Technologies and Cookies",
-                    "desc": "We use Cookies and similar tracking technologies to track the activity on Our Service and store certain information. Tracking technologies used are beacons, tags, and scripts to collect and track information and to improve and analyze Our Service. The technologies We use may include:",
+                    },
+                    "trackingCookies": {
+                    "title": "Tecnologias de rastreamento e cookies",
+                    "desc": "Usamos cookies e tecnologias de rastreamento semelhantes para rastrear a atividade em nosso serviço e armazenar determinadas informações. As tecnologias de rastreamento usadas são beacons, tags e scripts para coletar e rastrear informações e para melhorar e analisar nosso serviço. As tecnologias que usamos podem incluir:",
                     "cookieTypes": [
-                        {
-                            "key": "Cookies or Browser Cookies.",
-                            "rest": "A cookie is a small file placed on Your Device. You can instruct Your browser to refuse all Cookies or to indicate when a Cookie is being sent. However, if You do not accept Cookies, You may not be able to use some parts of our Service. Unless you have adjusted Your browser setting so that it will refuse Cookies, our Service may use Cookies."
-                        },
-                        {
-                            "key": "Web Beacons.",
-                            "rest": "Certain sections of our Service and our emails may contain small electronic files known as web beacons (also referred to as clear gifs, pixel tags, and single-pixel gifs) that permit the Company, for example, to count users who have visited those pages or opened an email and for other related website statistics (for example, recording the popularity of a certain section and verifying system and server integrity)."
-                        }
-                    ],
-                    "cookieDesc": "Cookies can be 'Persistent' or 'Session' Cookies. Persistent Cookies remain on Your personal computer or mobile device when You go offline, while Session Cookies are deleted as soon as You close.",
-                    "purposeHeader": "We use both Session and Persistent Cookies for the purposes set out below:",
+                    {
+                    "key": "Cookies ou cookies de navegador",
+                    "rest": "Um cookie é um pequeno arquivo colocado em seu dispositivo. Você pode instruir seu navegador a recusar todos os cookies ou a indicar quando um cookie está sendo enviado. No entanto, se você não aceitar cookies, pode não conseguir usar algumas partes de nosso serviço. A menos que você tenha ajustado sua configuração de navegador para recusar cookies, nosso serviço pode usar cookies."
+                    },
+                    {
+                    "key": "Web beacons",
+                    "rest": "Certas seções de nosso serviço e nossos e-mails podem conter pequenos arquivos eletrônicos conhecidos como web beacons (também chamados de clear gifs, pixel tags e single-pixel gifs) que permitem à Empresa, por exemplo, contar usuários que visitaram aquelas páginas ou abriram um e-mail e para outras estatísticas relacionadas ao site (por exemplo, registrando a popularidade de uma determinada seção e verificando a integridade do sistema e do servidor)."
+                    }],
+                    "cookieDesc": "Cookies podem ser cookies 'Persistentes' ou 'de Sessão'. Cookies Persistentes permanecem em seu computador pessoal ou dispositivo móvel quando você está offline, enquanto cookies de Sessão são excluídos assim que você fecha.",
+                    "purposeHeader": "Nós usamos tanto Cookies de Sessão quanto Cookies Persistentes para os propósitos listados abaixo:",
                     "purposeList": [
-                        {
-                            "key": "Necessary / Essential Cookies",
-                            "type": "Type: Session Cookies",
-                            "administeredBy": "Administered by: Us",
-                            "purpose": "Purpose: These Cookies are essential to provide You with services available through the Website and to enable You to use some of its features. They help to authenticate users and prevent fraudulent use of user accounts. Without these Cookies, the services that You have asked for cannot be provided, and We only use these Cookies to provide You with those services."
-                        },
-                        {
-                            "key": "Cookies Policy / Notice Acceptance Cookies",
-                            "type": "Type: Persistent Cookies",
-                            "administeredBy": "Administered by: Us",
-                            "purpose": "Purpose: These Cookies identify if users have accepted the use of cookies on the Website."
-                        },
-                        {
-                            "key": "Functionality Cookies",
-                            "type": "Type: Persistent Cookies",
-                            "administeredBy": "Administered by: Us",
-                            "purpose": " Purpose: These Cookies allow us to remember choices You make when You use the Website, such as remembering your login details or language preference. The purpose of these Cookies is to provide You with a more personal experience and to avoid You having to re-enter your preferences every time You use the Website."
-                        }
+                    {
+                    "key": "Cookies Necessários / Essenciais",
+                    "type": "Tipo: Cookies de Sessão",
+                    "administeredBy": "Administrado por: Nós",
+                    "purpose": "Propósito: Esses Cookies são essenciais para fornecer a você os serviços disponíveis através do Website e permitir que você use algumas de suas funcionalidades. Eles ajudam a autenticar usuários e prevenir o uso fraudulento de contas de usuário. Sem esses Cookies, os serviços que você solicitou não podem ser fornecidos e nós usamos esses Cookies apenas para fornecer a você esses serviços."
+                    },
+                    {
+                    "key": "Cookies de Aceitação de Política / Aviso de Cookies",
+                    "type": "Tipo: Cookies Persistentes",
+                    "administeredBy": "Administrado por: Nós",
+                    "purpose": "Propósito: Esses Cookies identificam se os usuários aceitaram o uso de Cookies no Website."
+                    },
+                    {
+                    "key": "Cookies de Funcionalidade",
+                    "type": "Tipo: Cookies Persistentes",
+                    "administeredBy": "Administrado por: Nós",
+                    "purpose": "Propósito: Esses Cookies nos permitem lembrar escolhas que você faz quando usa o Website, como lembrar seus detalhes de login ou preferência de idioma. O objetivo desses Cookies é fornecer a você uma experiência mais pessoal e evitar que você precise inserir suas preferências toda vez que usar o Website."
+                    }
                     ],
-                    "moreInfo": "For more information about the cookies we use and your choices regarding cookies, please visit our Cookies Policy or the Cookies section of our Privacy Policy."
-                }
-            },
-            "useOfPersonalData": {
-                "title": "Use of Your Personal Data",
-                "purposeDesc": "The Company may use Personal Data for the following purposes:",
-                "purposeList": [
-                    {
-                        "key": "To provide and maintain our Service",
-                        "rest": "including to monitor the usage of our Service."
-                    },
-                    {
-                        "key": "To manage Your Account:",
-                        "rest": "to manage Your registration as a user of the Service. The Personal Data You provide can give You access to different functionalities of the Service that are available to You as a registered user."
-                    },
-                    {
-                        "key": "For the performance of a contract:",
-                        "rest": "the development, compliance and undertaking of the purchase contract for the products, items or services You have purchased or of any other contract with Us through the Service."
-                    },
-                    {
-                        "key": "To contact You:",
-                        "rest": "To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile application's push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation."
-                    },
-                    {
-                        "key": "To provide You",
-                        "rest": "with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless You have opted not to receive such information."
-                    },
-                    {
-                        "key": "To manage Your requests:",
-                        "rest": "To attend and manage Your requests to Us."
-                    },
-                    {
-                        "key": "For business transfers:",
-                        "rest": "We may use Your information to evaluate or conduct a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of Our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which Personal Data held by Us about our Service users is among the assets transferred."
-                    },
-                    {
-                        "key": "For other purposes:",
-                        "rest": "We may use Your information for other purposes, such as data analysis, identifying usage trends, determining the effectiveness of our promotional campaigns and to evaluate and improve our Service, products, services, marketing and your experience."
+                    "moreInfo": "Para obter mais informações sobre os cookies que usamos e suas escolhas em relação aos cookies, visite nossa Política de Cookies ou a seção de Cookies de nossa Política de Privacidade."
                     }
-                ],
-                "situationDesc": "We may share Your personal information in the following situations:",
-                "situationList": [
-                    {
-                        "key": "With Service Providers:",
-                        "rest": "We may share Your personal information with Service Providers to monitor and analyze the use of our Service, to contact You."
                     },
-                    {
-                        "key": "For business transfers:",
-                        "rest": "We may share or transfer Your personal information in connection with, or during negotiations of, any merger, sale of Company assets, financing, or acquisition of all or a portion of Our business to another company."
-                    },
-                    {
-                        "key": "With Affiliates:",
-                        "rest": "We may share Your information with Our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include Our parent company and any other subsidiaries, joint venture partners or other companies that We control or that are under common control with Us."
-                    },
-                    {
-                        "key": "For business transfers:",
-                        "rest": "We may share or transfer Your personal information in connection with, or during negotiations of, any merger, sale of Company assets, financing, or acquisition of all or a portion of Our business to another company."
-                    },
-                    {
-                        "key": "With other users:",
-                        "rest": "when You share personal information or otherwise interact in the public areas with other users, such information may be viewed by all users and may be publicly distributed outside."
-                    },
-                    {
-                        "key": "With Your consent:",
-                        "rest": "We may disclose Your personal information for any other purpose with Your consent."
-                    }
-                ]
-            },
-            "retentionOfData": {
-                "title": "Retention of Your Personal Data",
-                "items": [
-                    "The Company will retain Your Personal Data only for as long as is necessary for the purposes set out in this Privacy Policy. We will retain and use Your Personal Data to the extent necessary to comply with our legal obligations (for example, if we are required to retain your data to comply with applicable laws), resolve disputes, and enforce our legal agreements and policies.",
-                    "The Company will also retain Usage Data for internal analysis purposes. Usage Data is generally retained for a shorter period of time, except when this data is used to strengthen the security or to improve the functionality of Our Service, or We are legally obligated to retain this data for longer time periods."
-                ]
-            },
-            "transferOfData": {
-                "title": "Transfer of Your Personal Data",
-                "items": [
-                    "Your information, including Personal Data, is processed at the Company's operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction.",
-                    "Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.",
-                    "The Company will take all steps reasonably necessary to ensure that Your data is treated securely and in accordance with this Privacy Policy and no transfer of Your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of Your data and other personal information."
-                ]
-            },
-            "deleteData": {
-                "title": "Delete Your Personal Data",
-                "items": [
-                    "You have the right to delete or request that We assist in deleting the Personal Data that We have collected about You.",
-                    "Our Service may give You the ability to delete certain information about You from within the Service.",
-                    "You may update, amend, or delete Your information at any time by signing in to Your Account, if you have one, and visiting the account settings section that allows you to manage Your personal information. You may also contact Us to request access to, correct, or delete any personal information that You have provided to Us.",
-                    "Please note, however, that We may need to retain certain information when we have a legal obligation or lawful basis to do so."
-                ]
-            },
-            "dataDisclosure": {
-                "title": "Disclosure of Your Personal Data",
-                "businessTransactions": {
-                    "title": "Business Transactions",
-                    "content": "If the Company is involved in a merger, acquisition or asset sale, Your Personal Data may be transferred. We will provide notice before Your Personal Data is transferred and becomes subject to a different Privacy Policy."
-                },
-                "lawEnforcement": {
-                    "title": "Law enforcement",
-                    "content": "Under certain circumstances, the Company may be required to disclose Your Personal Data if required  to do so by law or in response to valid requests by public authorities (e.g. a court or a government agency)."
-                },
-                "otherLegalRequirements": {
-                    "title": "Other legal requirements",
-                    "desc": "The Company may disclose Your Personal Data in the good faith belief that such action is necessary to:",
-                    "items": [
-                        "Comply with a legal obligation",
-                        "Protect and defend the rights or property of the Company",
-                        "Prevent or investigate possible wrongdoing in connection with the Service",
-                        "Protect the personal safety of Users of the Service or the public",
-                        "Protect against legal liability"
-                    ]
-                }
-            },
+                    "useOfPersonalData": {
+                        "title": "Uso de seus Dados Pessoais",
+                        "purposeDesc": "A Empresa pode usar Dados Pessoais para os seguintes propósitos:",
+                        "purposeList": [
+                        {
+                        "key": "Para fornecer e manter nosso Serviço",
+                        "rest": "incluindo monitorar o uso do nosso Serviço."
+                        },
+                        {
+                        "key": "Para gerenciar sua conta:",
+                        "rest": "gerenciar seu registro como usuário do Serviço. Os Dados Pessoais que você fornece podem lhe dar acesso a diferentes funcionalidades do Serviço que estão disponíveis para você como usuário registrado."
+                        },
+                        {
+                        "key": "Para a execução de um contrato:",
+                        "rest": "o desenvolvimento, cumprimento e execução do contrato de compra dos produtos, itens ou serviços que você comprou ou de qualquer outro contrato conosco por meio do Serviço."
+                        },
+                        {
+                        "key": "Para entrar em contato com você:",
+                        "rest": "entrar em contato com você por e-mail, telefone, SMS ou outras formas equivalentes de comunicação eletrônica, como notificações push de um aplicativo móvel, sobre atualizações ou comunicações informativas relacionadas às funcionalidades, produtos ou serviços contratados, incluindo atualizações de segurança, quando necessário ou razoável para a implementação delas."
+                        },
+                        {
+                        "key": "Para fornecer a você",
+                        "rest": "notícias, ofertas especiais e informações gerais sobre outros bens, serviços e eventos que oferecemos e que são semelhantes aos que você já comprou ou perguntou, a menos que você tenha optado por não receber tais informações."
+                        },
+                        {
+                        "key": "Para gerenciar suas solicitações:",
+                        "rest": "atender e gerenciar suas solicitações para nós."
+                        },
+                        {
+                        "key": "Para transferências de negócios:",
+                        "rest": "podemos usar suas informações para avaliar ou realizar uma fusão, venda, reestruturação, reorganização, dissolução ou outra venda ou transferência de parte ou todos os nossos ativos, seja como uma entidade em funcionamento ou como parte de um processo de falência, liquidação ou procedimento semelhante, nos quais os Dados Pessoais mantidos por nós sobre os usuários de nosso Serviço estão entre os ativos transferidos."
+                        },
+                        {
+                        "key": "Para outros fins:",
+                        "rest": "podemos usar suas informações para outros fins, como análise de dados, identificação de tendências de uso, determinação da eficácia de nossas campanhas promocionais e para avaliar e melhorar nosso Serviço, produtos, serviços, marketing e sua experiência."
+                        }
+                        ],
+                        "situationDesc": "Podemos compartilhar suas informações pessoais nas seguintes situações:",
+                        "situationList": [
+                        {
+                        "key": "Com prestadores de serviços:",
+                        "rest": "Podemos compartilhar suas informações pessoais com prestadores de serviços para monitorar e analisar o uso do nosso Serviço e para entrar em contato com você."
+                        },
+                        {
+                        "key": "Transferências comerciais:",
+                        "rest": "Podemos compartilhar ou transferir suas informações pessoais em conexão com, ou durante negociações de, qualquer fusão, venda de ativos da Empresa, financiamento ou aquisição de todo ou parte do nosso negócio por outra empresa."
+                        },
+                        {
+                        "key": "Com afiliadas:",
+                        "rest": "Podemos compartilhar suas informações com nossas afiliadas, nesse caso exigiremos que essas afiliadas cumpram esta Política de Privacidade. As afiliadas incluem nossa empresa controladora e quaisquer outras subsidiárias, parceiros de joint venture ou outras empresas que controlamos ou que estejam sob controle comum conosco."
+                        },
+                        {
+                        "key": "Transferências comerciais:",
+                        "rest": "Podemos compartilhar ou transferir suas informações pessoais em conexão com, ou durante negociações de, qualquer fusão, venda de ativos da Empresa, financiamento ou aquisição de todo ou parte do nosso negócio por outra empresa."
+                        },
+                        {
+                        "key": "Com outros usuários:",
+                        "rest": "Quando você compartilha informações pessoais ou interage em áreas públicas com outros usuários, essas informações podem ser vistas por todos os usuários e podem ser distribuídas publicamente fora do serviço."
+                        },
+                        {
+                        "key": "Com seu consentimento:",
+                        "rest": "Podemos divulgar suas informações pessoais para qualquer outro fim com seu consentimento."
+                        }
+                        ]
+                        },
+                        "retentionOfData": {
+                            "title": "Retenção dos seus dados pessoais",
+                            "items": [
+                            "A Empresa reterá os seus dados pessoais apenas pelo tempo necessário para as finalidades estabelecidas nesta Política de Privacidade. Nós reteremos e utilizaremos os seus dados pessoais na medida do necessário para cumprir com as nossas obrigações legais (por exemplo, se formos obrigados a reter os seus dados para cumprir com leis aplicáveis), resolver disputas e fazer cumprir nossos acordos e políticas legais.",
+                            "A Empresa também reterá Dados de Utilização para fins de análise interna. Geralmente, os Dados de Utilização são retidos por um período mais curto, exceto quando esses dados são utilizados para fortalecer a segurança ou melhorar a funcionalidade do nosso Serviço, ou quando somos obrigados por lei a manter esses dados por períodos mais longos."
+                            ]
+                            },
+                            "transferOfData": {
+                            "title": "Transferência dos seus dados pessoais",
+                            "items": [
+                            "As suas informações, incluindo Dados Pessoais, são processadas nos escritórios operacionais da Empresa e em outros locais onde as partes envolvidas no processamento estão localizadas. Isso significa que essas informações podem ser transferidas e mantidas em computadores localizados fora do seu estado, província, país ou outra jurisdição governamental onde as leis de proteção de dados podem ser diferentes das leis da sua jurisdição.",
+                            "O seu consentimento a esta Política de Privacidade seguido do envio de tais informações representa o seu acordo com essa transferência.",
+                            "A Empresa tomará todas as medidas razoavelmente necessárias para garantir que os seus dados sejam tratados de forma segura e de acordo com esta Política de Privacidade, e nenhuma transferência dos seus dados pessoais será realizada para uma organização ou país, a menos que haja controles adequados em vigor, incluindo a segurança dos seus dados e outras informações pessoais."
+                            ]
+                            },
+                            "deleteData": {
+                                "title": "Exclusão dos seus dados pessoais",
+                                "items": [
+                                "Você tem o direito de excluir ou solicitar que ajudemos na exclusão dos dados pessoais que coletamos sobre você.",
+                                "Nosso Serviço pode oferecer a você a capacidade de excluir certas informações sobre você dentro do próprio Serviço.",
+                                "Você pode atualizar, alterar ou excluir suas informações a qualquer momento, fazendo login na sua conta, se tiver uma, e visitando a seção de configurações da conta que permite gerenciar suas informações pessoais. Você também pode entrar em contato conosco para solicitar acesso, correção ou exclusão de qualquer informação pessoal que você tenha fornecido a nós.",
+                                "Observe, no entanto, que podemos precisar reter certas informações quando tivermos uma obrigação legal ou base legal para fazê-lo."
+                                ]
+                                },
+                                "dataDisclosure": {
+                                    "title": "Divulgação dos seus dados pessoais",
+                                    "businessTransactions": {
+                                    "title": "Transações comerciais",
+                                    "content": "Se a Empresa estiver envolvida em uma fusão, aquisição ou venda de ativos, seus dados pessoais poderão ser transferidos. Nós avisaremos antes que seus dados pessoais sejam transferidos e se tornem sujeitos a uma política de privacidade diferente."
+                                    },
+                                    "lawEnforcement": {
+                                    "title": "Aplicação da lei",
+                                    "content": "Em determinadas circunstâncias, a Empresa pode ser obrigada a divulgar seus dados pessoais se exigido por lei ou em resposta a solicitações válidas de autoridades públicas (por exemplo, um tribunal ou um órgão governamental)."
+                                    },
+                                    "otherLegalRequirements": {
+                                    "title": "Outros requisitos legais",
+                                    "desc": "A Empresa pode divulgar seus dados pessoais na crença sincera de que tal ação é necessária para:",
+                                    "items": [
+                                    "Cumprir uma obrigação legal",
+                                    "Proteger e defender os direitos ou propriedade da Empresa",
+                                    "Prevenir ou investigar possíveis infrações relacionadas ao Serviço",
+                                    "Proteger a segurança pessoal dos Usuários do Serviço ou do público",
+                                    "Proteger contra responsabilidade legal"
+                                    ]
+                                    }
+                                    },
             "dataSecurity": {
-                "title": "Security of Your Personal Data",
-                "content": "The security of Your Personal Data is important to Us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While We strive to use commercially acceptable means to protect Your Personal Data, We cannot guarantee its absolute security."
+                "title": "Segurança dos seus dados pessoais",
+                "content": "A segurança dos seus dados pessoais é importante para nós, mas lembre-se de que nenhum método de transmissão pela Internet ou método de armazenamento eletrônico é 100% seguro. Embora nos esforcemos para utilizar meios comercialmente aceitáveis para proteger seus dados pessoais, não podemos garantir sua segurança absoluta."
             }
         },
         "childrenPrivacy": {
-            "title": "Children's Privacy",
-            "items": [
-                "Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If You are a parent or guardian and You are aware that Your child has provided Us with Personal Data, please contact Us. If We become aware that We have collected Personal Data from anyone under the age of 13 without verification of parental consent, We take steps to remove that information from Our servers.",
-                "If We need to rely on consent as a legal basis for processing Your information and Your country requires consent from a parent, We may require Your parent's consent before We collect and use that information."
+            "title": "Privacidade das crianças",
+"items": [
+"Nosso serviço não é destinado a menores de 13 anos. Não coletamos intencionalmente informações pessoalmente identificáveis de menores de 13 anos. Se você é um pai ou responsável e tem conhecimento de que seu filho nos forneceu dados pessoais, entre em contato conosco. Se ficarmos sabendo que coletamos dados pessoais de menores de 13 anos sem verificação de consentimento dos pais, tomaremos medidas para remover essas informações de nossos servidores.",
+"Se precisarmos confiar no consentimento como base legal para processar suas informações e seu país exigir consentimento dos pais, poderemos solicitar o consentimento dos seus pais antes de coletar e usar essas informações."
             ]
         },
         "websiteLinks": {
-            "title": "Links to Other Websites",
+            "title": "Links para outros sites",
             "items": [
-                "Our Service may contain links to other websites that are not operated by Us. If You click on a third party link, You will be directed to that third party's site. We strongly advise You to review the Privacy Policy of every site You visit.",
-                "We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services."
+            "Nosso serviço pode conter links para outros sites que não são operados por nós. Se você clicar em um link de terceiros, será direcionado para o site desse terceiro. Recomendamos enfaticamente que você revise a Política de Privacidade de todos os sites que visita.",
+            "Não temos controle sobre o conteúdo, políticas de privacidade ou práticas de sites ou serviços de terceiros e não assumimos nenhuma responsabilidade por eles."
             ]
         },
         "changesToPolicy": {
-            "title": "Changes to this Privacy Policy",
+            "title": "Alterações nesta Política de Privacidade",
             "items": [
-                "We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the new Privacy Policy on this page.",
-                "We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the 'Last updated' date at the top of this Privacy Policy.",
-                "You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page."
+            "Podemos atualizar nossa Política de Privacidade de tempos em tempos. Notificaremos você de quaisquer alterações publicando a nova Política de Privacidade nesta página.",
+            "Informaremos você por e-mail e/ou por meio de um aviso proeminente em nosso Serviço, antes que a mudança entre em vigor e atualizaremos a data 'Última atualização' no topo desta Política de Privacidade.",
+            "Recomendamos que você revise esta Política de Privacidade periodicamente para quaisquer mudanças. As alterações nesta Política de Privacidade entram em vigor quando são publicadas nesta página."
             ]
-        },
-        "contactUs": {
-            "title": "Contact Us",
-            "desc": "If you have any questions about this Privacy Policy, You can contact us:",
-            "byEmail": "By email: {email}",
-            "viaWebsite": "By visiting this page on our website: "
-        }
-    },
-    "termsAndConditions": {
-        "seoDescription": "The Terms and conditions that needs to be agreed before using Menufic",
-        "lastUpdated": "Last updated: {date}",
-        "introduction": {
-            "title": "Introduction",
-            "line1": "These Terms of Service govern your use of our website located at {url} operated by Menufic.",
-            "line2": "Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and disclose information that results from your use of our web pages.",
-            "line3": "Your agreement with us includes these Terms and our Privacy Policy (“Agreements”). You acknowledge that you have read and understood Agreements, and agree to be bound of them.",
-            "line4": "If you do not agree with (or cannot comply with) Agreements, then you may not use the Service, but please let us know by emailing at {email} so we can try to find a solution. These Terms apply to all visitors, users and others who wish to access or use Service."
-        },
-        "communication": {
-            "title": "Communications",
-            "content": "By using our Service, you agree to subscribe to newsletters, marketing or promotional materials and other information we may send. However, you may opt out of receiving any, or all, of these communications from us by following the unsubscribe link or by emailing at {email}."
-        },
-        "promotions": {
-            "title": "Contests, Sweepstakes and Promotions",
-            "content": "Any contests, sweepstakes or other promotions (collectively, “Promotions”) made available through Service may be governed by rules that are separate from these Terms of Service. If you participate in any Promotions, please review the applicable rules as well as our Privacy Policy. If the rules for a Promotion conflict with these Terms of Service, Promotion rules will apply."
-        },
+            },
+            "contactUs": {
+            "title": "Entre em Contato",
+            "desc": "Se você tiver alguma dúvida sobre esta Política de Privacidade, pode entrar em contato conosco:",
+            "byEmail": "Por e-mail: {email}",
+            "viaWebsite": "Visitando esta página em nosso site:"
+            }
+            },
+            "termsAndConditions": {
+                "seoDescription": "Os Termos e Condições que devem ser aceitos antes de utilizar o Bolt Menu",
+                "lastUpdated": "Última atualização: {date}",
+                "introduction": {
+                "title": "Introdução",
+                "line1": "Estes Termos de Serviço regem o seu uso do nosso website localizado em {url} operado pelo Bolt Menu.",
+                "line2": "Nossa Política de Privacidade também governa o seu uso do nosso Serviço e explica como coletamos, protegemos e divulgamos informações resultantes do seu uso de nossas páginas da web.",
+                "line3": "Seu acordo conosco inclui estes Termos e nossa Política de Privacidade (“Acordos”). Você reconhece que leu e entendeu os Acordos e concorda em ser vinculado por eles.",
+                "line4": "Se você não concorda (ou não pode cumprir) com os Acordos, então você não pode usar o Serviço, mas por favor nos informe enviando um e-mail para {email} para que possamos tentar encontrar uma solução. Estes Termos se aplicam a todos os visitantes, usuários e outras pessoas que desejam acessar ou usar o Serviço."
+                },
+                "communication": {
+                "title": "Comunicações",
+                "content": "Ao utilizar o nosso Serviço, você concorda em se inscrever em boletins informativos, materiais de marketing ou promoção e outras informações que possamos enviar. No entanto, você pode optar por não receber qualquer ou todas essas comunicações de nossa parte seguindo o link de cancelamento de inscrição ou enviando um e-mail para {email}."
+                },
+                "promotions": {
+                "title": "Concursos, Sorteios e Promoções",
+                "content": "Quaisquer concursos, sorteios ou outras promoções (coletivamente, “Promoções”) disponibilizadas através do Serviço podem ser regidos por regras que são separadas destes Termos de Serviço. Se você participar de quaisquer Promoções, revise as regras aplicáveis, bem como nossa Política de Privacidade. Se as regras de uma Promoção entrarem em conflito com estes Termos de Serviço, as regras da Promoção prevalecerão."
+                },
         "content": {
             "title": "Content",
             "items": [
-                "Our Service allows you to post, link, store, share and otherwise make available certain information, text, graphics, videos, or other material (“Content”). You are responsible for Content that you post on or through Service, including its legality, reliability, and appropriateness.",
-                "By posting Content on or through Service, You represent and warrant that: (i) Content is yours (you own it) and/or you have the right to use it and the right to grant us the rights and license as provided in these Terms, and (ii) that the posting of your Content on or through Service does not violate the privacy rights, publicity rights, copyrights, contract rights or any other rights of any person or entity. We reserve the right to terminate the account of anyone found to be infringing on a copyright.",
-                "You retain any and all of your rights to any Content you submit, post or display on or through Service and you are responsible for protecting those rights. We take no responsibility and assume no liability for Content you or any third party posts on or through Service. However, by posting Content using Service you grant us the right and license to use, modify, publicly perform, publicly display, reproduce, and distribute such Content on and through Service. You agree that this license includes the right for us to make your Content available to other users of Service, who may also use your Content subject to these Terms.",
-                "Menufic has the right but not the obligation to monitor and edit all Content provided by users.",
-                "In addition, Content found on or through this Service are the property of Menufic or used with permission. You may not distribute, modify, transmit, reuse, download, repost, copy, or use said Content, whether in whole or in part, for commercial purposes or for personal gain, without express advance written permission from us."
+                "Nosso Serviço permite que você publique, vincule, armazene, compartilhe e de outra forma disponibilize determinadas informações, textos, gráficos, vídeos ou outro material (`Conteúdo`). Você é responsável pelo Conteúdo que publicar no ou por meio do Serviço, incluindo seu legalidade, confiabilidade e adequação.",
+                "Ao postar Conteúdo no ou através do Serviço, Você declara e garante que: (i) O Conteúdo é seu (você o possui) e/ou você tem o direito de usá-lo e o direito de nos conceder os direitos e a licença conforme previsto nestes Termos e (ii) que a postagem de seu Conteúdo no ou por meio do Serviço não viola os direitos de privacidade, direitos de publicidade, direitos autorais, direitos contratuais ou quaisquer outros direitos de qualquer pessoa ou entidade. Reservamo-nos o direito de encerrar a conta de qualquer pessoa considerado infringindo direitos autorais.",
+                "Você retém todo e qualquer direito sobre qualquer Conteúdo que enviar, publicar ou exibir no ou por meio do Serviço e você é responsável por proteger esses direitos. Não assumimos nenhuma responsabilidade pelo Conteúdo que você ou qualquer terceiro publicar no ou por meio Serviço. No entanto, ao postar Conteúdo usando o Serviço, você nos concede o direito e a licença para usar, modificar, executar publicamente, exibir publicamente, reproduzir e distribuir tal Conteúdo no e por meio do Serviço. Você concorda que esta licença inclui o direito de fazermos seu Conteúdo disponível para outros usuários do Serviço, que também podem usar seu Conteúdo sujeito a estes Termos.",
+                "Bolt Menu tem o direito, mas não a obrigação, de monitorar e editar todo o Conteúdo fornecido pelos usuários.",
+                "Além disso, o Conteúdo encontrado neste ou por meio deste Serviço é de propriedade da Bolt Menu ou usado com permissão. Você não pode distribuir, modificar, transmitir, reutilizar, baixar, republicar, copiar ou usar o referido Conteúdo, seja no todo ou em parte, para fins comerciais ou para ganho pessoal, sem nossa permissão expressa por escrito"
             ]
         },
         "prohibitedUses": {
-            "title": "Prohibited Uses",
-            "desc": "You may use Service only for lawful purposes and in accordance with Terms. You agree not to use Service:",
+            "title": "Usos Proibidos",
+            "desc": "Você pode usar o Serviço apenas para fins legais e de acordo com os Termos. Você concorda em não usar o Serviço:",
             "items": [
-                "In any way that violates any applicable national or international law or regulation.",
-                "For the purpose of exploiting, harming, or attempting to exploit or harm minors in any way by exposing them to inappropriate content or otherwise.",
-                "To transmit, or procure the sending of, any advertising or promotional material, including any “junk mail”, “chain letter,” “spam,” or any other similar solicitation.",
-                "To impersonate or attempt to impersonate Company, a Company employee, another user, or any other person or entity.",
-                "In any way that infringes upon the rights of others, or in any way is illegal, threatening, fraudulent, or harmful, or in connection with any unlawful, illegal, fraudulent, or harmful purpose or activity.",
-                "To engage in any other conduct that restricts or inhibits anyone’s use or enjoyment of Service, or which, as determined by us, may harm or offend Company or users of Service or expose them to liability."
+                "De qualquer forma que viole qualquer lei ou regulamento nacional ou internacional aplicável.",
+                "Com o objetivo de explorar, prejudicar ou tentar explorar ou prejudicar menores de qualquer forma, expondo-os a conteúdo impróprio ou de outra forma.",
+                "Para transmitir ou obter o envio de qualquer material publicitário ou promocional, incluindo qualquer “lixo eletrônico”, “corrente”, “spam” ou qualquer outra solicitação semelhante.",
+                "Fazer-se passar ou tentar fazer-se passar pela Empresa, um funcionário da Empresa, outro usuário ou qualquer outra pessoa ou entidade.",
+                "De qualquer forma que infrinja os direitos de terceiros, ou de qualquer forma seja ilegal, ameaçadora, fraudulenta ou prejudicial, ou em conexão com qualquer finalidade ou atividade ilegal, ilegal, fraudulenta ou prejudicial.",
+                "Envolver-se em qualquer outra conduta que restrinja ou iniba o uso ou gozo do Serviço por qualquer pessoa, ou que, conforme determinado por nós, possa prejudicar ou ofender a Empresa ou os usuários do Serviço ou expô-los a responsabilidade."
             ],
-            "additionalDesc": "Additionally, you agree not to:",
+            "additionalDesc": "Além disso, você concorda em não:",
             "additionalItems": [
-                "Use Service in any manner that could disable, overburden, damage, or impair Service or interfere with any other party’s use of Service, including their ability to engage in real time activities through Service.",
-                "Use any robot, spider, or other automatic device, process, or means to access Service for any purpose, including monitoring or copying any of the material on Service.",
-                "Use any manual process to monitor or copy any of the material on Service or for any other unauthorized purpose without our prior written consent.",
-                "Use any device, software, or routine that interferes with the proper working of Service.",
-                "Introduce any viruses, trojan horses, worms, logic bombs, or other material which is malicious or technologically harmful.",
-                "Attempt to gain unauthorized access to, interfere with, damage, or disrupt any parts of Service, the server on which Service is stored, or any server, computer, or database connected to Service.",
-                "Attack Service via a denial-of-service attack or a distributed denial-of-service attack.",
-                "Take any action that may damage or falsify Company rating.",
-                "Otherwise attempt to interfere with the proper working of Service."
+                "Usar o Serviço de qualquer maneira que possa desabilitar, sobrecarregar, danificar ou prejudicar o Serviço ou interferir no uso do Serviço por qualquer outra parte, incluindo sua capacidade de se envolver em atividades em tempo real por meio do Serviço.",
+                "Usar qualquer robô, spider ou outro dispositivo, processo ou meio automático para acessar o Serviço para qualquer finalidade, incluindo monitorar ou copiar qualquer material do Serviço.",
+                "Use qualquer processo manual para monitorar ou copiar qualquer material no Serviço ou para qualquer outro propósito não autorizado sem nosso consentimento prévio por escrito.",
+                "Usar qualquer dispositivo, software ou rotina que interfira no bom funcionamento do Serviço.",
+                "Introduzir quaisquer vírus, cavalos de Tróia, worms, bombas lógicas ou outro material que seja malicioso ou tecnologicamente prejudicial.",
+                "Tentar obter acesso não autorizado, interferir, danificar ou interromper qualquer parte do Serviço, o servidor no qual o Serviço está armazenado ou qualquer servidor, computador ou banco de dados conectado ao Serviço.",
+                "Serviço de ataque por meio de um ataque de negação de serviço ou um ataque de negação de serviço distribuído.",
+                "Tome qualquer ação que possa danificar ou falsificar a classificação da empresa.",
+                "Caso contrário, tente interferir no funcionamento adequado do Serviço."
             ]
         },
         "analytics": {
-            "title": "Analytics",
-            "content": "We may use third-party Service Providers to monitor and analyze the use of our Service."
+            "title": "Análise",
+            "content": "Podemos usar provedores de serviços terceirizados para monitorar e analisar o uso de nosso serviço."
         },
         "usageByMinors": {
-            "title": "No Use By Minors",
-            "content": "Service is intended only for access and use by individuals at least eighteen (18) years old. By accessing or using Service, you warrant and represent that you are at least eighteen (18) years of age and with the full authority, right, and capacity to enter into this agreement and abide by all of the terms and conditions of Terms. If you are not at least eighteen (18) years old, you are prohibited from both the access and usage of Service."
+            "title": "Proibido Uso por Menores",
+            "content": "O Serviço destina-se apenas ao acesso e uso por indivíduos com pelo menos dezoito (18) anos de idade. Ao acessar ou usar o Serviço, você garante e declara que tem pelo menos dezoito (18) anos de idade e com total autoridade, direito, e capacidade para celebrar este contrato e cumprir todos os termos e condições dos Termos. Se você não tiver pelo menos dezoito (18) anos de idade, está proibido de acessar e usar o Serviço."
         },
         "accounts": {
-            "title": "Accounts",
+            "title": "Contas",
             "items": [
-                "When you create an account with us, you guarantee that you are above the age of 18, and that the information you provide us is accurate, complete, and current at all times. Inaccurate, incomplete, or obsolete information may result in the immediate termination of your account on Service.",
-                "You are responsible for maintaining the confidentiality of your account and password, including but not limited to the restriction of access to your computer and/or account. You agree to accept responsibility for any and all activities or actions that occur under your account and/or password, whether your password is with our Service or a third-party service. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.",
-                "You may not use as a username the name of another person or entity or that is not lawfully available for use, a name or trademark that is subject to any rights of another person or entity other than you, without appropriate authorization. You may not use as a username any name that is offensive, vulgar or obscene.",
-                "We reserve the right to refuse service, terminate accounts, remove or edit content, or cancel orders in our sole discretion."
+                "Ao criar uma conta conosco, você garante que tem mais de 18 anos e que as informações que você nos fornece são precisas, completas e atuais em todos os momentos. Informações imprecisas, incompletas ou obsoletas podem resultar na imediata encerramento de sua conta no Serviço.",
+                "Você é responsável por manter a confidencialidade de sua conta e senha, incluindo, entre outros, a restrição de acesso ao seu computador e/ou conta. Você concorda em aceitar a responsabilidade por todas e quaisquer atividades ou ações que ocorram em sua conta e/ou ou senha, seja sua senha com nosso Serviço ou um serviço de terceiros. Você deve nos notificar imediatamente ao tomar conhecimento de qualquer violação de segurança ou uso não autorizado de sua conta.",
+                "Você não pode usar como nome de usuário o nome de outra pessoa ou entidade ou que não esteja legalmente disponível para uso, um nome ou marca registrada que esteja sujeita a quaisquer direitos de outra pessoa ou entidade que não seja você, sem a devida autorização. Você não pode use como nome de usuário qualquer nome que seja ofensivo, vulgar ou obsceno.",
+                "Reservamos o direito de recusar serviços, encerrar contas, remover ou editar conteúdo ou cancelar pedidos a nosso exclusivo critério."
             ]
         },
         "intellectualProperty": {
-            "title": "Intellectual Property",
-            "content": "Service and its original content (excluding Content provided by users), features and functionality are and will remain the exclusive property of Menufic and its licensors. Service is protected by copyright, trademark, and other laws of and foreign countries. Our trademarks may not be used in connection with any product or service without the prior written consent of Menufic."
+            "title": "Propriedade intelectual",
+            "content": "O Serviço e seu conteúdo original (excluindo o Conteúdo fornecido pelos usuários), recursos e funcionalidades são e permanecerão propriedade exclusiva da Bolt Menu e de seus licenciadores. O serviço é protegido por direitos autorais, marcas registradas e outras leis de países estrangeiros. Nossas marcas registradas não podem ser usadas em conexão com qualquer produto ou serviço sem o consentimento prévio por escrito da Bolt Menu."
         },
         "copyrightPolicy": {
-            "title": "Copyright Policy",
-            "line1": "We respect the intellectual property rights of others. It is our policy to respond to any claim that Content posted on Service infringes on the copyright or other intellectual property rights (“Infringement”) of any person or entity.",
-            "line2": "If you are a copyright owner, or authorized on behalf of one, and you believe that the copyrighted work has been copied in a way that constitutes copyright infringement, please submit your claim via email to {email}, with the subject line: “Copyright Infringement” and include in your claim a detailed description of the alleged Infringement as detailed below, under “DMCA Notice and Procedure for Copyright Infringement Claims”",
-            "line3": "You may be held accountable for damages (including costs and attorneys’ fees) for misrepresentation or bad-faith claims on the infringement of any Content found on and/or through Service on your copyright."
-        },
+            "title": "Política de Direitos Autorais",
+            "line1": "Respeitamos os direitos de propriedade intelectual de terceiros. É nossa política responder a qualquer reclamação de que o Conteúdo postado no Serviço infringe os direitos autorais ou outros direitos de propriedade intelectual de qualquer pessoa ou entidade (“Infringimento”).",
+            "line2": "Se você é proprietário de direitos autorais, ou autorizado em nome de um, e acredita que o trabalho protegido por direitos autorais foi copiado de uma forma que constitui violação de direitos autorais, envie sua reclamação por e-mail para {email}, com a linha de assunto: “Infringimento de direitos autorais” e inclua em sua reclamação uma descrição detalhada do suposto Infringimento, conforme detalhado abaixo, em “Aviso e Procedimento DMCA para Reivindicações de Violação de Direitos Autorais”",
+            "line3": "Você pode ser responsabilizado por danos (incluindo custos e honorários advocatícios) por representação incorreta ou reclamações de má-fé sobre a violação de qualquer Conteúdo encontrado no e/ou através do Serviço em seus direitos autorais."
+            },
         "copyrightInfringement": {
-            "title": "DMCA Notice and Procedure for Copyright Infringement Claims",
-            "desc": "You may submit a notification pursuant to the Digital Millennium Copyright Act (DMCA) by providing our Copyright Agent with the following information in writing (see 17 U.S.C 512(c)(3) for further detail):",
+            "title": "Aviso DMCA e Procedimento para Reivindicações de Violação de Direitos Autorais",
+            "desc": "Você pode enviar uma notificação de acordo com o Digital Millennium Copyright Act (DMCA) fornecendo ao nosso agente de direitos autorais as seguintes informações por escrito (consulte 17 U.S.C 512(c)(3) para obter mais detalhes):",
             "items": [
-                "an electronic or physical signature of the person authorized to act on behalf of the owner of the copyright’s interest;",
-                "a description of the copyrighted work that you claim has been infringed, including the URL (i.e., web page address) of the location where the copyrighted work exists or a copy of the copyrighted work;",
-                "identification of the URL or other specific location on Service where the material that you claim is infringing is located;",
-                "your address, telephone number, and email address;",
-                "a statement by you that you have a good faith belief that the disputed use is not authorized by the copyright owner, its agent, or the law;",
-                "a statement by you, made under penalty of perjury, that the above information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner’s behalf."
+                "uma assinatura eletrônica ou física da pessoa autorizada a agir em nome do proprietário dos direitos autorais;",
+                "uma descrição do trabalho protegido por direitos autorais que você alega ter sido infringido, incluindo o URL (ou seja, endereço da página da Web) do local onde o trabalho protegido por direitos autorais existe ou uma cópia do trabalho protegido por direitos autorais;",
+                "identificação da URL ou outro local específico no Serviço onde está localizado o material que você alega estar infringindo;",
+                "seu endereço, número de telefone, e endereço de e-mail;",
+                "uma declaração sua de que você acredita de boa fé que o uso contestado não foi autorizado pelo proprietário dos direitos autorais, seu agente ou pela lei;",
+                "uma declaração sua, feita sob pena de perjúrio, de que as informações acima em seu aviso são precisas e que você é o proprietário dos direitos autorais ou está autorizado a agir em nome do proprietário dos direitos autorais."
             ],
-            "contactEmail": "You can contact our Copyright Agent via email at {email}."
+            "contactEmail": "Você pode entrar em contato com nosso agente de direitos autorais por e-mail em {email}."
         },
         "errorReporting": {
-            "title": "Error Reporting and Feedback",
-            "content": "You may provide us either directly at {email} or via third party sites and tools with information and feedback concerning errors, suggestions for improvements, ideas, problems, complaints, and other matters related to our Service (“Feedback”). You acknowledge and agree that: (i) you shall not retain, acquire or assert any intellectual property right or other right, title or interest in or to the Feedback; (ii) Company may have development ideas similar to the Feedback; (iii) Feedback does not contain confidential information or proprietary information from you or any third party; and (iv) Company is not under any obligation of confidentiality with respect to the Feedback. In the event the transfer of the ownership to the Feedback is not possible due to applicable mandatory laws, you grant Company and its affiliates an exclusive, transferable, irrevocable, free-of-charge, sub-licensable, unlimited and perpetual right to use (including copy, modify, create derivative works, publish, distribute and commercialize) Feedback in any manner and for any purpose."
+            "title": "Relatório de erros e feedback",
+            "content": "Você pode nos fornecer diretamente em {email} ou por meio de sites e ferramentas de terceiros informações e feedback sobre erros, sugestões de melhorias, ideias, problemas, reclamações e outros assuntos relacionados ao nosso Serviço. Você reconhece e concorda que: (i) você não deve reter, adquirir ou reivindicar qualquer direito de propriedade intelectual ou outro direito, título ou interesse em ou para o Feedback; (ii) a Empresa pode ter ideias de desenvolvimento semelhantes ao Feedback; (iii) O feedback não contém informações confidenciais ou informações proprietárias de você ou de terceiros; e (iv) a Empresa não tem nenhuma obrigação de confidencialidade com relação ao Feedback. Caso a transferência da propriedade para o Feedback não seja possível devido às leis obrigatórias aplicáveis, você concede à Empresa e suas afiliadas um direito exclusivo, transferível, irrevogável, gratuito, sublicenciável, ilimitado e perpétuo de uso ( incluindo copiar, modificar, criar trabalhos derivados, publicar, distribuir e comercializar) Comentários de qualquer maneira e para qualquer finalidade."
         },
         "otherSiteLinks": {
-            "title": "Links To Other Web Sites",
+            "title": "Links para outros sites",
             "items": [
-                "Our Service may contain links to third party web sites or services that are not owned or controlled by Menufic.",
-                "Menufic has no control over, and assumes no responsibility for the content, privacy policies, or practices of any third party web sites or services. We do not warrant the offerings of any of these entities/individuals or their websites.",
-                "YOU ACKNOWLEDGE AND AGREE THAT COMPANY SHALL NOT BE RESPONSIBLE OR LIABLE, DIRECTLY OR INDIRECTLY, FOR ANY DAMAGE OR LOSS CAUSED OR ALLEGED TO BE CAUSED BY OR IN CONNECTION WITH USE OF OR RELIANCE ON ANY SUCH CONTENT, GOODS OR SERVICES AVAILABLE ON OR THROUGH ANY SUCH THIRD PARTY WEB SITES OR SERVICES.",
-                "WE STRONGLY ADVISE YOU TO READ THE TERMS OF SERVICE AND PRIVACY POLICIES OF ANY THIRD PARTY WEB SITES OR SERVICES THAT YOU VISIT."
+                "Nosso Serviço pode conter links para sites ou serviços de terceiros que não são de propriedade ou controlados pela Bolt Menu.",
+                "Bolt Menu não tem controle e não assume nenhuma responsabilidade pelo conteúdo, políticas de privacidade ou práticas de sites ou serviços de terceiros. Não garantimos as ofertas de nenhuma dessas entidades/indivíduos ou seus sites.",
+                "VOCÊ RECONHECE E CONCORDA QUE A COMPANHIA NÃO SERÁ RESPONSÁVEL, DIRETA OU INDIRETAMENTE, POR QUALQUER DANO OU PERDA CAUSADO OU ALEGADAMENTE CAUSADO POR OU EM CONEXÃO COM O USO OU CONFIANÇA EM QUALQUER CONTEÚDO, BENS OU SERVIÇOS DISPONÍVEIS EM OU ATRAVÉS DE QUAISQUER SITES OU SERVIÇOS DE TERCEIROS.",
+                "NÓS ACONSELHAMOS VOCÊ A LER OS TERMOS DE SERVIÇO E AS POLÍTICAS DE PRIVACIDADE DE QUAISQUER SITES OU SERVIÇOS DE TERCEIROS QUE VOCÊ VISITE."
             ]
         },
         "disclaimerOfWarranty": {
-            "title": "Disclaimer Of Warranty",
+            "title": "Isenção de garantia",
             "items": [
-                "THESE SERVICES ARE PROVIDED BY COMPANY ON AN “AS IS” AND “AS AVAILABLE” BASIS. COMPANY MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, AS TO THE OPERATION OF THEIR SERVICES, OR THE INFORMATION, CONTENT OR MATERIALS INCLUDED THEREIN. YOU EXPRESSLY AGREE THAT YOUR USE OF THESE SERVICES, THEIR CONTENT, AND ANY SERVICES OR ITEMS OBTAINED FROM US IS AT YOUR SOLE RISK.",
-                "NEITHER COMPANY NOR ANY PERSON ASSOCIATED WITH COMPANY MAKES ANY WARRANTY OR REPRESENTATION WITH RESPECT TO THE COMPLETENESS, SECURITY, RELIABILITY, QUALITY, ACCURACY, OR AVAILABILITY OF THE SERVICES. WITHOUT LIMITING THE FOREGOING, NEITHER COMPANY NOR ANYONE ASSOCIATED WITH COMPANY REPRESENTS OR WARRANTS THAT THE SERVICES, THEIR CONTENT, OR ANY SERVICES OR ITEMS OBTAINED THROUGH THE SERVICES WILL BE ACCURATE, RELIABLE, ERROR-FREE, OR UNINTERRUPTED, THAT DEFECTS WILL BE CORRECTED, THAT THE SERVICES OR THE SERVER THAT MAKES IT AVAILABLE ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS OR THAT THE SERVICES OR ANY SERVICES OR ITEMS OBTAINED THROUGH THE SERVICES WILL OTHERWISE MEET YOUR NEEDS OR EXPECTATIONS.",
-                "COMPANY HEREBY DISCLAIMS ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, NON-INFRINGEMENT, AND FITNESS FOR PARTICULAR PURPOSE.",
-                "THE FOREGOING DOES NOT AFFECT ANY WARRANTIES WHICH CANNOT BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW."
+                "ESTES SERVIÇOS SÃO FORNECIDOS PELA EMPRESA “COMO ESTÃO” E “CONFORME DISPONÍVEIS”. A EMPRESA NÃO FAZ REPRESENTAÇÕES OU GARANTIAS DE QUALQUER TIPO, EXPRESSAS OU IMPLÍCITAS, QUANTO À OPERAÇÃO DE SEUS SERVIÇOS, OU ÀS INFORMAÇÕES, CONTEÚDO OU MATERIAIS INCLUÍDOS NELE. VOCÊ CONCORDA EXPRESSAMENTE QUE O USO DESTES SERVIÇOS, SEU CONTEÚDO E QUAISQUER SERVIÇOS OU ITENS OBTIDOS DE NÓS É POR SUA CONTA E RISCO.",
+                "NEM A EMPRESA NEM QUALQUER PESSOA ASSOCIADA À COMPANHIA FAZ QUALQUER GARANTIA OU REPRESENTAÇÃO COM RELAÇÃO À INTEGRIDADE, SEGURANÇA, CONFIABILIDADE, QUALIDADE, PRECISÃO OU DISPONIBILIDADE DOS SERVIÇOS. SEM LIMITAR O ACIMA, NEM A COMPANHIA NEM QUALQUER PESSOA ASSOCIADA À COMPANHIA REPRESENTA OU GARANTE QUE OS SERVIÇOS, SEU CONTEÚDO OU QUAISQUER SERVIÇOS OU ITENS OBTIDOS ATRAVÉS DOS SERVIÇOS SERÃO PRECISOS, CONFIÁVEIS, LIVRES DE ERROS OU ININTERRUPTOS, QUE OS DEFEITOS SERÃO CORRIGIDOS, QUE OS SERVIÇOS OU O SERVIDOR QUE OS DISPONIBILIZA ESTÃO LIVRES DE VÍRUS OU OUTROS COMPONENTES NOCIVOS OU QUE OS SERVIÇOS OU QUAISQUER SERVIÇOS OU ITENS OBTIDOS ATRAVÉS DOS SERVIÇOS ATENDERÃO DE OUTRA FORMA SUAS NECESSIDADES OU EXPECTATIVAS.",
+                "A EMPRESA RENUNCIA A TODAS AS GARANTIAS DE QUALQUER TIPO, SEJAM EXPRESSAS OU IMPLÍCITAS, LEGAIS OU OUTRAS, INCLUINDO, SEM LIMITAÇÃO, QUAISQUER GARANTIAS DE COMERCIALIZAÇÃO, NÃO VIOLAÇÃO E ADEQUAÇÃO PARA UM FIM ESPECÍFICO.",
+                "O ACIMA NÃO AFETA QUALQUER GARANTIA QUE NÃO POSSA SER EXCLUÍDA OU LIMITADA PELA LEI APLICÁVEL."
             ]
         },
         "limitationOfLiability": {
-            "title": "Limitation Of Liability",
-            "content": "EXCEPT AS PROHIBITED BY LAW, YOU WILL HOLD US AND OUR OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS HARMLESS FOR ANY INDIRECT, PUNITIVE, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGE, HOWEVER IT ARISES (INCLUDING ATTORNEYS’ FEES AND ALL RELATED COSTS AND EXPENSES OF LITIGATION AND ARBITRATION, OR AT TRIAL OR ON APPEAL, IF ANY, WHETHER OR NOT LITIGATION OR ARBITRATION IS INSTITUTED), WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE, OR OTHER TORTIOUS ACTION, OR ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT, INCLUDING WITHOUT LIMITATION ANY CLAIM FOR PERSONAL INJURY OR PROPERTY DAMAGE, ARISING FROM THIS AGREEMENT AND ANY VIOLATION BY YOU OF ANY FEDERAL, STATE, OR LOCAL LAWS, STATUTES, RULES, OR REGULATIONS, EVEN IF COMPANY HAS BEEN PREVIOUSLY ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. EXCEPT AS PROHIBITED BY LAW, IF THERE IS LIABILITY FOUND ON THE PART OF COMPANY, IT WILL BE LIMITED TO THE AMOUNT PAID FOR THE PRODUCTS AND/OR SERVICES, AND UNDER NO CIRCUMSTANCES WILL THERE BE CONSEQUENTIAL OR PUNITIVE DAMAGES. SOME STATES DO NOT ALLOW THE EXCLUSION OR LIMITATION OF PUNITIVE, INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THE PRIOR LIMITATION OR EXCLUSION MAY NOT APPLY TO YOU."
+            "title": "Limitação de responsabilidade",
+            "content": "EXCETO CONFORME PROIBIDO POR LEI, VOCÊ IRÁ ISENTAR A NÓS E A NOSSOS EXECUTIVOS, DIRETORES, FUNCIONÁRIOS E AGENTES POR QUALQUER DANO INDIRETO, PUNITIVO, ESPECIAL, INCIDENTAL OU CONSEQUENCIAL, DE QUALQUER FORMA QUE SEJA (INCLUINDO HONORÁRIOS DE ADVOGADOS E TODOS OS CUSTOS E DESPESAS RELACIONADOS DE LITÍGIO E ARBITRAGEM, OU EM JULGAMENTO OU RECURSO, SE HOUVER, SEJA LITÍGIO OU ARBITRAGEM INSTITUÍDA OU NÃO), SEJA EM UMA AÇÃO DE CONTRATO, NEGLIGÊNCIA OU OUTRA AÇÃO DELICITA, OU DECORRENTE DE OU EM CONEXÃO COM ESTE CONTRATO, INCLUINDO SEM LIMITAÇÃO QUALQUER RECLAMAÇÃO POR LESÕES PESSOAIS OU DANOS À PROPRIEDADE DECORRENTES DESTE CONTRATO E QUALQUER VIOLAÇÃO POR VOCÊ DE QUAISQUER LEIS, ESTATUTOS, REGRAS OU REGULAMENTOS FEDERAIS, ESTADUAIS OU LOCAIS, MESMO SE A EMPRESA TIVER SIDO ANTERIORMENTE AVISADA DA POSSIBILIDADE DE TAIS DANOS . EXCETO CONFORME PROIBIDO POR LEI, CASO HEJA RESPONSABILIDADE DA COMPANHIA, ESTA SERÁ LIMITADA AO VALOR PAGO PELOS PRODUTOS E/OU SERVIÇOS, E EM NENHUMA CIRCUNSTÂNCIA HAVERÁ DANOS CONSEQUENCIAIS OU PUNITIVOS. ALGUNS ESTADOS NÃO PERMITEM A EXCLUSÃO OU LIMITAÇÃO DE DANOS PUNITIVOS, INCIDENTAIS OU CONSEQUENCIAIS, PORTANTO A LIMITAÇÃO OU EXCLUSÃO ANTERIOR PODE NÃO SE APLICAR A VOCÊ."
         },
         "termination": {
-            "title": "Termination",
+            "title": "Rescisão",
             "items": [
-                "We may terminate or suspend your account and bar access to Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of Terms.",
-                "If you wish to terminate your account, you may simply discontinue using Service.",
-                "All provisions of Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability."
+            "Podemos rescindir ou suspender sua conta e barrar o acesso ao Serviço imediatamente, sem aviso prévio ou responsabilidade, a nosso exclusivo critério, por qualquer motivo e sem limitação, incluindo, mas não se limitando a uma violação dos Termos.",
+            "Se você deseja rescindir sua conta, basta parar de usar o Serviço.",
+            "Todas as disposições dos Termos que, por sua natureza, devem sobreviver à rescisão, sobreviverão à rescisão, incluindo, sem limitação, disposições de propriedade, isenções de garantia, indenização e limitações de responsabilidade."
             ]
-        },
-        "governingLaw": {
-            "title": "Governing Law",
+            },
+            "governingLaw": {
+            "title": "Lei Aplicável",
             "items": [
-                "These Terms shall be governed and construed in accordance with the laws of Sri Lanka, which governing law applies to agreement without regard to its conflict of law provisions.",
-                "Our failure to enforce any right or provision of these Terms will not be considered a waiver of those rights. If any provision of these Terms is held to be invalid or unenforceable by a court, the remaining provisions of these Terms will remain in effect. These Terms constitute the entire agreement between us regarding our Service and supersede and replace any prior agreements we might have had between us regarding Service."
+            "Estes Termos serão regidos e interpretados de acordo com as leis do Sri Lanka, às quais se aplica o presente acordo, independentemente de suas disposições de conflito de leis.",
+            "Nossa falha em fazer valer qualquer direito ou disposição destes Termos não será considerada uma renúncia a esses direitos. Se qualquer disposição destes Termos for considerada inválida ou inexequível por um tribunal, as disposições restantes destes Termos permanecerão em vigor. Estes Termos constituem o acordo completo entre nós em relação ao nosso Serviço e substituem quaisquer acordos anteriores que possamos ter tido entre nós em relação ao Serviço."
             ]
-        },
-        "changesToService": {
-            "title": "Changes To Service",
-            "content": "We reserve the right to withdraw or amend our Service, and any service or material we provide via Service, in our sole discretion without notice. We will not be liable if for any reason all or any part of Service is unavailable at any time or for any period. From time to time, we may restrict access to some parts of Service, or the entire Service, to users, including registered users."
-        },
-        "amendmentsToTerms": {
-            "title": "Amendments To Terms",
-            "items": [
-                "We may amend Terms at any time by posting the amended terms on this site. It is your responsibility to review these Terms periodically.",
-                "Your continued use of the Platform following the posting of revised Terms means that you accept and agree to the changes. You are expected to check this page frequently so you are aware of any changes, as they are binding on you.",
-                "By continuing to access or use our Service after any revisions become effective, you agree to be bound by the revised terms. If you do not agree to the new terms, you are no longer authorized to use Service."
-            ]
-        },
-        "waiverAndSeverability": {
-            "title": "Waiver And Severability",
-            "items": [
-                "No waiver by Company of any term or condition set forth in Terms shall be deemed a further or continuing waiver of such term or condition or a waiver of any other term or condition, and any failure of Company to assert a right or provision under Terms shall not constitute a waiver of such right or provision.",
-                "If any provision of Terms is held by a court or other tribunal of competent jurisdiction to be invalid, illegal or unenforceable for any reason, such provision shall be eliminated or limited to the minimum extent such that the remaining provisions of Terms will continue in full force and effect."
-            ]
-        },
-        "acknowledgement": {
-            "title": "Acknowledgement",
-            "content": "BY USING SERVICE OR OTHER SERVICES PROVIDED BY US, YOU ACKNOWLEDGE THAT YOU HAVE READ THESE TERMS OF SERVICE AND AGREE TO BE BOUND BY THEM."
-        },
-        "contactUs": {
-            "title": "Contact Us",
-            "content": " Please send your feedback, comments, requests for technical support by email: {email}"
-        }
+            },
+            "changesToService": {
+            "title": "Alterações no Serviço",
+            "content": "Reservamos o direito de retirar ou modificar nosso Serviço e qualquer serviço ou material que fornecemos por meio do Serviço, a nosso exclusivo critério e sem aviso prévio. Não seremos responsáveis se, por qualquer motivo, todo ou parte do Serviço estiver indisponível a qualquer momento ou por qualquer período. De tempos em tempos, podemos restringir o acesso a algumas partes do Serviço, ou a todo o Serviço, para os usuários, incluindo usuários registrados."
+            },
+            "amendmentsToTerms": {
+                "title": "Alterações nos Termos",
+                "items": [
+                "Podemos alterar os Termos a qualquer momento, publicando os termos alterados neste site. É sua responsabilidade revisar estes Termos periodicamente.",
+                "Seu uso contínuo da Plataforma após a publicação dos Termos revisados significa que você aceita e concorda com as mudanças. É esperado que você verifique esta página frequentemente para estar ciente de quaisquer alterações, pois elas são vinculativas para você.",
+                "Ao continuar a acessar ou usar nosso Serviço após quaisquer revisões se tornarem efetivas, você concorda em estar vinculado pelos termos revisados. Se você não concordar com os novos termos, não está mais autorizado a usar o Serviço."
+                ]
+                },
+                "waiverAndSeverability": {
+                "title": "Renúncia e Severabilidade",
+                "items": [
+                "Nenhuma renúncia por parte da Empresa de qualquer termo ou condição estabelecida nos Termos será considerada uma renúncia adicional ou contínua de tal termo ou condição, ou uma renúncia de qualquer outro termo ou condição, e qualquer falha da Empresa em afirmar um direito ou disposição sob os Termos não constituirá uma renúncia desse direito ou disposição.",
+                "Se qualquer disposição dos Termos for considerada inválida, ilegal ou inexequível por um tribunal ou outro tribunal competente, tal disposição será eliminada ou limitada ao mínimo possível, de modo que as disposições restantes dos Termos continuarão em pleno vigor e efeito."
+                ]
+                },
+                "acknowledgement": {
+                "title": "Reconhecimento",
+                "content": "AO USAR O SERVIÇO OU OUTROS SERVIÇOS FORNECIDOS POR NÓS, VOCÊ RECONHECE QUE LEU ESTES TERMOS DE SERVIÇO E CONCORDA EM CUMPRIR ELES."
+                },
+                "contactUs": {
+                "title": "Contato",
+                "content": "Envie seus comentários, solicitações de suporte técnico ou feedback por e-mail!"
+                }
     }
 }
+

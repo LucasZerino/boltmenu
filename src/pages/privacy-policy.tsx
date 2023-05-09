@@ -159,21 +159,6 @@ const PrivacyPolicyPage: NextPage = () => {
                 {t.raw("changesToPolicy.items").map((item: string, index: number) => (
                     <Text key={`${index}`}>{item}</Text>
                 ))}
-                <Title order={2}>{t("contactUs.title")}</Title>
-                <Text>{t("contactUs.desc")}</Text>
-                <List>
-                    <List.Item>
-                        <Text>{t("contactUs.byEmail", { email: env.NEXT_PUBLIC_CONTACT_EMAIL })}</Text>
-                    </List.Item>
-                    <List.Item>
-                        <Text>
-                            {t("contactUs.viaWebsite")}
-                            <Link href={env.NEXT_PUBLIC_PROD_URL} target="_blank">
-                                {env.NEXT_PUBLIC_PROD_URL}
-                            </Link>
-                        </Text>
-                    </List.Item>
-                </List>
             </Container>
             <Footer />
         </>
