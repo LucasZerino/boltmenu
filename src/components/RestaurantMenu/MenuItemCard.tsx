@@ -78,7 +78,7 @@ interface Props {
 export const MenuItemCard: FC<Props> = ({ item }) => {
     const { classes, cx } = useStyles({ imageColor: item?.image?.color });
     const [modalVisible, setModalVisible] = useState(false);
-    const priceWithIncrease = item.price * 1.25; // preço com acréscimo de 25%
+    const priceWithIncrease = Number(item.price) * 1.25; // preço com acréscimo de 25%
     return (
         <>
             <Paper
