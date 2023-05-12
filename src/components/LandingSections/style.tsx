@@ -114,6 +114,9 @@ export const useStyles = createStyles((theme) => {
             width: "95%",
         },
         containerSubtitle2: {
+            [`@media (max-height: 850px)`]: {
+                display: "none !important",
+            },
             [`@media (max-width: 700px)`]: {
                 color: "#51677a",
                 display: "flex",
@@ -205,6 +208,10 @@ export const useStyles = createStyles((theme) => {
             zIndex: 1,
         },
         headerImg2: {
+            [`@media (max-height: 850px)`]: {
+                height: "140px !important",
+                maxWidth: "120px !important",
+            },
             [`@media (max-width: 1180px)`]: {
                 display: "flex !important",
             },

@@ -19,7 +19,16 @@ import {
     useMantineTheme,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import { IconEyeglass2, IconHome, IconLogin, IconLogout, IconMoonStars, IconPizza, IconSun } from "@tabler/icons";
+import {
+    IconEyeglass2,
+    IconHome,
+    IconLogin,
+    IconLogout,
+    IconMoonStars,
+    IconPizza,
+    IconSun,
+    IconUserPlus,
+} from "@tabler/icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
@@ -177,7 +186,7 @@ export const NavHeader: FC<Props> = ({
                                             <LoginOptions>
                                                 {isMobile ? (
                                                     <ActionIcon className={classes.dashboardActionIcon} size={36}>
-                                                        <IconLogin />
+                                                        <IconUserPlus />
                                                     </ActionIcon>
                                                 ) : (
                                                     <Button leftIcon={<IconLogin />} size="md">
