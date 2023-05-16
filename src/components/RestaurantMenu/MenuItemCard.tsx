@@ -40,7 +40,7 @@ const useStyles = createStyles((theme, { imageColor }: StyleProps, getRef) => {
                     theme.colorScheme === "light" ? theme.fn.darken(bgColor, 0.05) : theme.fn.lighten(bgColor, 0.05),
                 boxShadow: theme.shadows.xs,
             },
-            backgroundColor: "#F5F7FA",
+            backgroundColor: "#F7F7F7",
             border: `1px solid ${theme.colors.dark[3]}`,
             color: theme.colors.dark[8],
             cursor: "pointer",
@@ -78,7 +78,7 @@ interface Props {
 export const MenuItemCard: FC<Props> = ({ item }) => {
     const { classes, cx } = useStyles({ imageColor: item?.image?.color });
     const [modalVisible, setModalVisible] = useState(false);
-    const priceWithIncrease = Number(item.price) * 1.25; // preço com acréscimo de 25%
+    const priceWithIncrease = parseFloat(item.price.replace(",", ".")) * 1.25; // preço com acréscimo de 25%
     return (
         <>
             <Paper
@@ -108,7 +108,14 @@ export const MenuItemCard: FC<Props> = ({ item }) => {
                     </Text>
                     <Text color="#55A977" size="sm">
                         R$ {item.price}
-                        <span className={classes.increase}> R$ {priceWithIncrease} </span>
+                        <span className={classes.increase}>
+                            {" "}
+                            R${" "}
+                            {priceWithIncrease.toLocaleString("pt-BR", {
+                                maximumFractionDigits: 2,
+                                minimumFractionDigits: 2,
+                            })}{" "}
+                        </span>
                     </Text>
                     <Text className={cx(classes.cardText, classes.cardItemDesc)} opacity={0.7} size="xs">
                         {item.description}

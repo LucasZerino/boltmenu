@@ -196,19 +196,13 @@ export const RestaurantMenu: FC<Props> = ({ restaurant }) => {
                         <IconMapPin />
                         <Text className={classes.carousalTitleSubText}>{restaurant?.location}</Text>
                     </Flex>
-                    {restaurant?.contactNo && (
-                        <Flex align="center" gap={10} opacity={0.6}>
-                            <IconPhone />
-                            <Text className={classes.carousalTitleSubText}>{restaurant?.contactNo}</Text>
-                        </Flex>
-                    )}
                 </Stack>
             </MediaQuery>
             <Tabs my={40} onTabChange={setSelectedMenu} value={selectedMenu}>
                 <Tabs.List>
                     {restaurant?.menus?.map((menu) => (
                         <Tabs.Tab key={menu.id} px="lg" value={menu.id}>
-                            <Text color={theme.black} size="lg" weight={selectedMenu === menu.id ? "bold" : "normal"}>
+                            <Text color={theme.black} size="md" weight={selectedMenu === menu.id ? "bold" : "normal"}>
                                 {menu.name}
                             </Text>
                             <Text color={theme.colors.dark[8]} opacity={selectedMenu === menu.id ? 1 : 0.5} size="xs">
