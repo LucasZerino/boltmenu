@@ -1,3 +1,4 @@
+import cartRouter from "./routers/cart.router";
 import { categoryRouter } from "./routers/category.router";
 import { menuRouter } from "./routers/menu.router";
 import { menuItemRouter } from "./routers/menuItem.router";
@@ -10,6 +11,7 @@ import { createTRPCRouter } from "./trpc";
  * All routers added in /api/routers should be manually added here
  */
 export const appRouter = createTRPCRouter({
+    cart: cartRouter,
     category: categoryRouter,
     menu: menuRouter,
     menuItem: menuItemRouter,

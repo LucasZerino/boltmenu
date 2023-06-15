@@ -75,6 +75,7 @@ model MenuItem {
     categoryId  String?
     image       Image?    @relation("ImageOfMenuItem", fields: [imageId], references: [id])
     imageId     String?   @unique
+    cartItems   CartItem[] @relation("MenuItemToCartItem")
 
     @@id([id, userId])
     @@index([categoryId])
@@ -91,4 +92,23 @@ model Image {
     restaurantId     String?
 
     @@index([restaurantId])
+}
+
+model Cart {
+  id        String     @id @default(cuid())
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  customerId String
+  items     CartItem[]
+}
+
+model CartItem {
+  id         String     @id @default(cuid())
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  quantity   Int
+  menuItem   MenuItem   @relation("MenuItemToCartItem", fields: [menuItemId], references: [id])
+  menuItemId String
+  cart       Cart       @relation(fields: [cartId], references: [id])
+  cartId     String
 }

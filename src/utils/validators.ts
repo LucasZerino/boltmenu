@@ -36,3 +36,5 @@ export const bannerInput = z.object({
     imageBase64: z.string().min(1, "Image is required"),
     restaurantId: z.string().cuid(),
 });
+
+export const cartItemId = z.string().uuid();
