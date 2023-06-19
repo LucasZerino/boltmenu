@@ -10,3 +10,19 @@ services:
       - "3306:3306"
     volumes:
       - ./mysql-data:/var/lib/mysql
+  
+  backup:
+    image: mysql:5.7
+    command: sh -c 'exec mysqldump -hdb -uroot -pexample mydb > /backup/db_backup.sql'
+    depends_on:
+      - db
+    volumes:
+      - ./backup:/backup
+  
+  restore:
+    image: mysql:5.7
+    command: sh -c 'exec mysql -hdb -uroot -pexample mydb < /backup/db_backup.sql'
+    depends_on:
+      - db
+    volumes:
+      - ./backup:/backup
