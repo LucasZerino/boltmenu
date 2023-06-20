@@ -1,3 +1,4 @@
+version: '3'
 services:
   db:
     image: mysql
@@ -9,11 +10,3 @@ services:
       - "3306:3306"
     volumes:
       - ./mysql-data:/var/lib/mysql
-    command: --max-allowed-packet=256M --net_write_timeout=7200 --log-warnings=0
-  backup:
-    image: mysql:5.7
-    command: sh -c 'exec mysqldump -hdb -uroot -pexample mydb > /backup/db_backup.sql'
-    depends_on:
-      - db
-    volumes:
-      - ./backup:/backup
