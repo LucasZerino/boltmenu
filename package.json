@@ -53,6 +53,7 @@
         "react-dom": "18.2.0",
         "react-easy-crop": "^4.6.3",
         "react-qr-code": "^2.0.11",
+        "react-query": "^3.39.3",
         "sharp": "^0.31.3",
         "superjson": "1.9.1",
         "uuid": "^9.0.0",

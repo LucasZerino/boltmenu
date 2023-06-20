@@ -2,9 +2,12 @@ import type { FC } from "react";
 import React, { useEffect, useMemo, useState } from "react";
 
 import { Box, Button, createStyles, Stack, Text, useMantineTheme } from "@mantine/core";
+import { useQuery } from "react-query";
 
 import type { ModalProps } from "@mantine/core";
 import type { Image, MenuItem } from "@prisma/client";
+
+import { api } from "src/utils/api";
 
 import { ImageKitImage } from "../ImageKitImage";
 import { Modal } from "../Modal";
@@ -13,6 +16,24 @@ interface Props extends ModalProps {
     /** Menu item for which the modal needs to be displayed */
     menuItem?: MenuItem & { image: Image | null };
 }
+
+function generateRandomId() {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const length = 10;
+    let randomId = "";
+
+    for (let i = 0; i < length; i += 1) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        randomId += characters.charAt(randomIndex);
+    }
+    return randomId;
+}
+
+const createVisitorId = () => {
+    const visitorId = generateRandomId(); // Generate a random ID here
+    window.localStorage.setItem("visitorId", visitorId);
+    return visitorId;
+};
 
 const useStyles = createStyles((theme) => ({
     addchart: {
@@ -27,14 +48,21 @@ const useStyles = createStyles((theme) => ({
         padding: "0",
     },
     button: {
+        backgroundColor: "transparent",
         border: "none",
         borderRight: "2px solid #A1A09F",
+        boxShadow: "none",
         color: "red",
+        fontSize: "23px",
         paddingRight: "5px",
     },
     button1: {
+        backgroundColor: "transparent",
+        border: "none",
         borderLeft: "2px solid #A1A09F",
+        boxShadow: "none",
         color: "#54A776",
+        fontSize: "23px",
         paddingLeft: "5px",
     },
     description: {
@@ -67,28 +95,11 @@ const useStyles = createStyles((theme) => ({
     },
 }));
 
-function generateRandomId() {
-    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    const length = 10;
-    let randomId = "";
-
-    for (let i = 0; i < length; i++) {
-        const randomIndex = Math.floor(Math.random() * characters.length);
-        randomId += characters.charAt(randomIndex);
-    }
-
-    return randomId;
-}
-
-const createVisitorId = () => {
-    const visitorId = generateRandomId(); // Gere um ID aleatório aqui
-    window.localStorage.setItem("visitorId", visitorId);
-};
-
 /** Modal to view details of a selected menu item */
 export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
-    const { classes } = useStyles();
     const theme = useMantineTheme();
+    const { classes } = useStyles();
+
     const [quantity, setQuantity] = useState(1);
     const bgColor = useMemo(() => {
         if (menuItem?.image?.color) {
@@ -99,19 +110,66 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
         }
         return theme.white;
     }, [menuItem?.image?.color, theme.colorScheme]);
+
+    const { mutate } = api.cart.create.useMutation(); // Move a chamada do useMutation para o nível do componente
+
     const handleAddToCart = () => {
-        if (window.localStorage.getItem("visitorId")) {
-            // O visitante já possui um ID
-            const visitorId = window.localStorage.getItem("visitorId");
-            console.log("Item adicionado ao carrinho com ID:", window.localStorage.getItem("visitorId"), {
+        const visitorId = window.localStorage.getItem("visitorId");
+
+        if (visitorId) {
+            console.log("Item adicionado ao carrinho com ID:", visitorId, {
                 ...menuItem,
                 quantity,
+            });
+
+            const createCart = async () => {
+                try {
+                    await mutate({
+                        customerId: visitorId,
+                    });
+                    console.log("Carrinho criado!");
+                } catch (error) {
+                    console.error("Erro ao criar o carrinho:", error);
+                }
+            };
+
+            const getCart = async () => {
+                try {
+                    const cart = await api.cart.get.useQuery({
+                        cartId: visitorId,
+                    });
+
+                    console.log("Item adicionado ao carrinho com ID:", visitorId, {
+                        ...menuItem,
+                        quantity,
+                    });
+                    console.log("Itens do carrinho:", cart);
+
+                    return cart; // Retorne o valor do carrinho
+                } catch (error) {
+                    console.error("Erro ao buscar o carrinho:", error);
+                    return null; // Retorne `null` em caso de erro
+                }
+            };
+            // http://localhost:3996/api/trpc/cart.create?batch=1
+
+            getCart().then((cart) => {
+                if (cart) {
+                    // Carrinho já existe
+                    console.log("Carrinho já existe!");
+                    console.log("Item adicionado ao carrinho com ID:", visitorId, {
+                        ...menuItem,
+                        quantity,
+                    });
+                } else {
+                    // Carrinho não existe, criar novo carrinho
+                    createCart();
+                }
             });
         } else {
             // O visitante ainda não possui um ID
             try {
                 createVisitorId();
-                // Lógica para adicionar o item ao carrinho aqui
                 console.log(
                     "Item adicionado ao carrinho:",
                     {
@@ -128,18 +186,9 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
             }
         }
     };
+
     return (
-        <Modal
-            centered
-            data-testid="menu-item-card-modal"
-            styles={{ modal: { background: bgColor } }}
-            title={
-                <Text color={theme.black} size="xl" weight="bold">
-                    {menuItem?.name}
-                </Text>
-            }
-            {...rest}
-        >
+        <Modal centered data-testid="menu-item-card-modal" styles={{ modal: { background: bgColor } }} {...rest}>
             <Stack spacing="sm">
                 {menuItem?.image?.path && (
                     <Box sx={{ borderRadius: theme.radius.lg, overflow: "hidden" }}>
@@ -164,20 +213,21 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
                         Adicionar
                     </Button>
                     <div className={classes.addchart}>
-                        <div
+                        <button
                             className={classes.button}
                             onClick={() => {
                                 if (quantity > 1) {
                                     setQuantity(quantity - 1);
                                 }
                             }}
+                            type="button"
                         >
                             -
-                        </div>
+                        </button>
                         <h1 className={classes.description}>{quantity}</h1>
-                        <div className={classes.button1} onClick={() => setQuantity(quantity + 1)}>
+                        <button className={classes.button1} onClick={() => setQuantity(quantity + 1)} type="button">
                             +
-                        </div>
+                        </button>
                     </div>
                 </div>
             </Stack>

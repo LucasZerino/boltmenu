@@ -1,4 +1,4 @@
-import cartRouter from "./routers/cart.router";
+import { cartRouter } from "./routers/cart.router";
 import { categoryRouter } from "./routers/category.router";
 import { menuRouter } from "./routers/menu.router";
 import { menuItemRouter } from "./routers/menuItem.router";

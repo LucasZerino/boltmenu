@@ -50,4 +50,7 @@ yarn-error.log*
 /.nyc_coverage
 /.scannerwork
 
+#docker
+/docker/myqsl-data
+
 TODO.md
