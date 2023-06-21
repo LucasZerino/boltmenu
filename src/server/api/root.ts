@@ -1,4 +1,5 @@
 import { cartRouter } from "./routers/cart.router";
+import { cartItemRouter } from "./routers/cartItem.router";
 import { categoryRouter } from "./routers/category.router";
 import { menuRouter } from "./routers/menu.router";
 import { menuItemRouter } from "./routers/menuItem.router";
@@ -12,6 +13,7 @@ import { createTRPCRouter } from "./trpc";
  */
 export const appRouter = createTRPCRouter({
     cart: cartRouter,
+    cartItem: cartItemRouter,
     category: categoryRouter,
     menu: menuRouter,
     menuItem: menuItemRouter,

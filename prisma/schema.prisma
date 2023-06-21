@@ -98,7 +98,7 @@ model Cart {
   id        String     @id @default(cuid())
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
-  customerId String    @unique
+  customerId String    @unique 
   items     CartItem[]
 }
 
@@ -107,8 +107,9 @@ model CartItem {
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @updatedAt
   quantity   Int
-  menuItem   MenuItem   @relation("MenuItemToCartItem", fields: [menuItemId], references: [id])
-  menuItemId String
+  menuItem   MenuItem?   @relation("MenuItemToCartItem", fields: [menuItemId], references: [id])
+  menuItemId String?
   cart       Cart       @relation(fields: [cartId], references: [id])
   cartId     String
+  ownerId    String?     @unique
 }

@@ -2,7 +2,7 @@ import type { FC } from "react";
 import React, { useEffect, useMemo, useState } from "react";
 
 import { Box, Button, createStyles, Stack, Text, useMantineTheme } from "@mantine/core";
-import { useQuery } from "react-query";
+import { QueryClient, QueryClientProvider, useMutation, useQuery } from "react-query";
 
 import type { ModalProps } from "@mantine/core";
 import type { Image, MenuItem } from "@prisma/client";
@@ -97,10 +97,20 @@ const useStyles = createStyles((theme) => ({
 
 /** Modal to view details of a selected menu item */
 export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
+    const queryClient = new QueryClient();
     const theme = useMantineTheme();
     const { classes } = useStyles();
 
     const [quantity, setQuantity] = useState(1);
+    const [showNotification, setShowNotification] = useState(false);
+
+    const showNotificationWithTimeout = () => {
+        setShowNotification(true);
+        setTimeout(() => {
+            setShowNotification(false);
+        }, 2000);
+    };
+
     const bgColor = useMemo(() => {
         if (menuItem?.image?.color) {
             if (theme.colorScheme === "light") {
@@ -112,77 +122,126 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
     }, [menuItem?.image?.color, theme.colorScheme]);
 
     const { mutate } = api.cart.create.useMutation(); // Move a chamada do useMutation para o nível do componente
+    const { mutate: addToCartMutate } = api.cart.addItem.useMutation(); // Adiciona item ao carrinho
+    const { mutate: editQuantity } = api.cartItem.editQuantity.useMutation(); // Edita a quantidade de um item no carrinho
+    const visitorId = typeof window !== "undefined" ? window.localStorage.getItem("visitorId") : null;
+    const { data: userCart, refetch: refetchUserCart } = api.cart.get.useQuery(
+        {
+            cartId: visitorId as string,
+        },
+        {
+            enabled: !!visitorId, // Ativa a query somente se o visitorId estiver disponível
+        }
+    );
 
-    const handleAddToCart = () => {
-        const visitorId = window.localStorage.getItem("visitorId");
+    const { data: cartItems, refetch: refetchCartItems } = api.cartItem.getAll.useQuery({
+        cartId: userCart?.id as string, // Use o ID do carrinho obtido em userCart
+    });
 
-        if (visitorId) {
-            console.log("Item adicionado ao carrinho com ID:", visitorId, {
-                ...menuItem,
-                quantity,
-            });
-
-            const createCart = async () => {
-                try {
-                    await mutate({
-                        customerId: visitorId,
-                    });
-                    console.log("Carrinho criado!");
-                } catch (error) {
-                    console.error("Erro ao criar o carrinho:", error);
-                }
-            };
-
-            const getCart = async () => {
-                try {
-                    const cart = await api.cart.get.useQuery({
-                        cartId: visitorId,
-                    });
-
-                    console.log("Item adicionado ao carrinho com ID:", visitorId, {
-                        ...menuItem,
-                        quantity,
-                    });
-                    console.log("Itens do carrinho:", cart);
-
-                    return cart; // Retorne o valor do carrinho
-                } catch (error) {
-                    console.error("Erro ao buscar o carrinho:", error);
-                    return null; // Retorne `null` em caso de erro
-                }
-            };
-            // http://localhost:3996/api/trpc/cart.create?batch=1
-
-            getCart().then((cart) => {
-                if (cart) {
-                    // Carrinho já existe
-                    console.log("Carrinho já existe!");
-                    console.log("Item adicionado ao carrinho com ID:", visitorId, {
-                        ...menuItem,
-                        quantity,
-                    });
-                } else {
-                    // Carrinho não existe, criar novo carrinho
-                    createCart();
-                }
-            });
-        } else {
-            // O visitante ainda não possui um ID
+    const handleAddToCart = async () => {
+        const createCart = async () => {
+            // Função para criar um carrinho
             try {
-                createVisitorId();
-                console.log(
-                    "Item adicionado ao carrinho:",
-                    {
-                        ...menuItem,
-                        quantity,
-                    },
-                    "teste",
-                    window.localStorage.getItem("visitorId")
-                );
-                // Adicione aqui qualquer feedback visual ou tratamento de sucesso
+                await mutate({
+                    customerId: visitorId ?? "",
+                });
+                await Promise.all([refetchUserCart(), refetchCartItems()]); // Aguarda o refetch dos dados do carrinho
+                console.log("Carrinho criado!");
             } catch (error) {
-                // Adicione aqui qualquer tratamento de erro ou feedback visual de falha
-                console.error("Erro ao adicionar o item ao carrinho:", error);
+                console.error("Erro ao criar o carrinho:", error);
+            }
+        };
+
+        const addToCart = async () => {
+            const itens = menuItem;
+            const quantidade = quantity;
+            const donoCarrinho = visitorId;
+            const idItemMenu = itens?.id;
+
+            console.log("Quantidade: ", quantidade, "\nDono do carrinho: ", donoCarrinho, "\nId do item: ", idItemMenu);
+            console.log(cartItems, "esse é o cartItems");
+
+            try {
+                console.log("Item adicionado ao carrinho!", visitorId);
+                await addToCartMutate({
+                    customerId: donoCarrinho ?? "",
+                    menuItemId: idItemMenu ?? "",
+                    ownerId: visitorId ?? "",
+                    quantity: quantidade ?? "",
+                });
+                showNotificationWithTimeout();
+            } catch (error) {
+                console.error("Erro ao adicionar item no carrinho:", error);
+            }
+        };
+
+        const editarQuantidade = async () => {
+            try {
+                const cartItem = cartItems?.find((item) => item.menuItemId === menuItem?.id);
+                const quantidade = cartItem ? cartItem.quantity + quantity : quantity;
+                await editQuantity({
+                    cartId: userCart?.id ?? "",
+                    menuItemId: menuItem?.id ?? "",
+                    quantity: quantidade,
+                });
+                await Promise.all([refetchUserCart(), refetchCartItems()]);
+            } catch (error) {
+                console.error("Erro ao editar a quantidade de itens", error);
+            }
+        };
+
+        // Devo verificar se o visitante tem um ID
+        if (visitorId) {
+            // Caso o visitante tenha um ID
+            console.log("O visitante tem um ID");
+            if (userCart) {
+                console.log("O visitante já tem um carrinho");
+                console.log("Devo adicionar um item ao carrinho");
+                if (cartItems !== undefined && cartItems.length > 0) {
+                    console.log("Devo apenas alterar a quantidade do item no carrinho");
+                    await editarQuantidade();
+                } else {
+                    console.log("Devo adicionar um item ao carrinho");
+                    setTimeout(async () => {
+                        await addToCart(); // Adiciona o item ao carrinho
+                    }, 2000);
+                }
+                setQuantity(1); // Volta quantidade para 1
+            } else {
+                console.log("Tive que criar um carrinho para o visitante");
+                console.log(userCart);
+                await createCart(); // Cria o carrinho do visitante
+                await Promise.all([refetchUserCart(), refetchCartItems()]); // Aguarda o refetch dos dados do carrinho
+                console.log("Devo adicionar um item ao carrinho");
+                setTimeout(async () => {
+                    await addToCart(); // Adiciona o item ao carrinho
+                }, 2000);
+                setQuantity(1); // Volta quantidade para 1
+            }
+        } else {
+            console.log("O visitante não tem um ID");
+            // Caso o visitante não tenha um ID
+            await createVisitorId(); // É criado o ID do visitante
+            // Verifica se já existe um carrinho com esse ID
+            if (userCart) {
+                console.log("O visitante já tem um carrinho");
+                setTimeout(async () => {
+                    await addToCart(); // Adiciona o item ao carrinho
+                }, 2000);
+                console.log("Devo adicionar um item ao carrinho");
+                setQuantity(1); // Volta quantidade para 1
+            } else {
+                console.log("Tive que criar um carrinho para o visitante");
+                console.log(userCart);
+                setTimeout(async () => {
+                    await createCart(); // Cria o carrinho do visitante
+                }, 2000);
+                await Promise.all([refetchUserCart(), refetchCartItems()]); // Aguarda o refetch dos dados do carrinho
+                console.log("Devo adicionar um item ao carrinho");
+                setTimeout(async () => {
+                    await addToCart(); // Adiciona o item ao carrinho
+                }, 2000);
+                setQuantity(1); // Volta quantidade para 1
             }
         }
     };
