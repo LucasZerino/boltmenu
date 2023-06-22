@@ -13,8 +13,9 @@ import {
     Text,
     useMantineColorScheme,
 } from "@mantine/core";
-import { IconBackhoe, IconClipboardList, IconMenu, IconMenuOrder, IconShoppingCart } from "@tabler/icons";
+import { IconBackhoe, IconClipboardList, IconMenu, IconMenuOrder, IconShoppingCart, IconTrashX } from "@tabler/icons";
 import { createProxySSGHelpers } from "@trpc/react-query/ssg";
+import { textAlign } from "html2canvas/dist/types/css/property-descriptors/text-align";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
@@ -41,6 +42,9 @@ const useStyles = createStyles((theme) => ({
         marginLeft: "20px",
         marginTop: "50px",
     },
+    iconX: {
+        cursor: "pointer",
+    },
     itens: {
         alignItems: "center",
         borderBottom: "2px solid #9AA5B1",
@@ -53,12 +57,29 @@ const useStyles = createStyles((theme) => ({
         fontSize: "17px",
     },
     itensh2: {
+        alignItems: "center",
         color: "#1F2933",
+        display: "flex",
         fontSize: "17px",
+        gap: "8px",
     },
     itensh3: {
         color: "#1F2933",
         fontSize: "17px",
+    },
+    limparCart: {
+        backgroundColor: "green",
+        border: "none",
+        borderRadius: "5px",
+        color: "white",
+        cursor: "pointer",
+        display: "inline-block",
+        fontSize: "16px",
+        fontWeight: "bold",
+        marginTop: "30px",
+        padding: "15px 32px",
+        textAlign: "center",
+        textDecoration: "none",
     },
     linha: {
         background: "#9AA5B1",
@@ -163,6 +184,33 @@ const RestaurantMenuPage: NextPage = () => {
         refetchUserCart(); // Atualiza o carrinho
     };
 
+    const { mutate: removeCartItem } = api.cartItem.remove.useMutation();
+    const { mutate: clearCarrinho } = api.cartItem.removeAll.useMutation();
+
+    const removerItemdoCarrinho = async (itemId: string) => {
+        try {
+            await removeCartItem({
+                cartItemId: itemId,
+            });
+            await refetchUserCart();
+            await refetchCartItems();
+        } catch (error) {
+            console.error("Erro ao remover Item", error);
+        }
+    };
+
+    const limparCarrinho = async (itemId: string) => {
+        try {
+            await clearCarrinho({
+                cartId: itemId,
+            });
+            await refetchUserCart();
+            await refetchCartItems();
+        } catch (error) {
+            console.error("Erro ao Limpar Carrinho Item", error);
+        }
+    };
+
     return (
         <>
             {!showResumo && (
@@ -225,9 +273,25 @@ const RestaurantMenuPage: NextPage = () => {
                         <div key={item.id} className={classes.itens}>
                             <h1 className={classes.itensh1}>{item?.itemName}</h1>
                             <h1 className={classes.itensh3}>-</h1>
-                            <h2 className={classes.itensh2}>x{item?.quantity}</h2>
+                            <h2 className={classes.itensh2}>
+                                x{item?.quantity}
+                                <IconTrashX
+                                    className={classes.iconX}
+                                    color="red"
+                                    onClick={() => removerItemdoCarrinho(item?.id)}
+                                />
+                            </h2>
                         </div>
                     ))}
+                    <div>
+                        <button
+                            className={classes.limparCart}
+                            onClick={() => userCart && limparCarrinho(userCart.id)}
+                            type="button"
+                        >
+                            Limpar Carrinho
+                        </button>
+                    </div>
                     <div className={classes.txtarea}>
                         <h1 className={classes.obsText}>Observações:</h1>
                         <textarea
