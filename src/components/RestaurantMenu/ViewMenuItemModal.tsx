@@ -157,23 +157,22 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
                 await mutate({
                     customerId: visitorId ?? "",
                 });
-                await refetchUserCart();
-                await refetchCartItems(); // Aguarda o refetch dos dados do carrinho
-                console.log("Carrinho criado!");
+                setTimeout(() => {
+                    refetchUserCart();
+                    refetchCartItems();
+                }, 1000);
             } catch (error) {
                 console.error("Erro ao criar o carrinho:", error);
             }
         };
 
         const addToCart = async () => {
-            console.log("deveria mostrar a notificação");
             showNotificationWithTimeout();
             const itens = menuItem;
             const quantidade = quantity;
             const donoCarrinho = visitorId;
             const idItemMenu = itens?.id;
             const nomedoItem = itens?.name;
-            console.log(nomedoItem, "nome do item");
             try {
                 if (nomedoItem) {
                     await addToCartMutate({
@@ -184,8 +183,10 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
                         quantity: quantidade ?? "",
                     });
                 }
-                await refetchUserCart();
-                await refetchCartItems();
+                setTimeout(() => {
+                    refetchUserCart();
+                    refetchCartItems();
+                }, 1000);
             } catch (error) {
                 console.error("Erro ao adicionar item no carrinho:", error);
             }
@@ -204,8 +205,10 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
                         quantity: quantidade,
                     });
                 }
-                await refetchUserCart();
-                await refetchCartItems();
+                setTimeout(() => {
+                    refetchUserCart();
+                    refetchCartItems();
+                }, 1000);
             } catch (error) {
                 console.error("Erro ao editar a quantidade de itens", error);
             }
@@ -229,39 +232,39 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
                 await createCart(); // Cria o carrinho do visitante
                 setTimeout(async () => {
                     await addToCart(); // Adiciona o item ao carrinho
+                }, 1000);
+                setTimeout(() => {
+                    refetchUserCart();
+                    refetchCartItems();
                 }, 2000);
-                await refetchUserCart();
-                await refetchCartItems(); // Aguarda o refetch dos dados do carrinho
                 setQuantity(1); // Volta quantidade para 1
             }
         } else {
-            console.log("O visitante não tem um ID");
             // Caso o visitante não tenha um ID
             await createVisitorId(); // É criado o ID do visitante
             // Verifica se já existe um carrinho com esse ID
             if (userCart) {
-                console.log("O visitante já tem um carrinho");
                 setTimeout(async () => {
                     await addToCart(); // Adiciona o item ao carrinho
                 }, 2000);
-                console.log("Devo adicionar um item ao carrinho");
                 setQuantity(1); // Volta quantidade para 1
             } else {
-                console.log("Tive que criar um carrinho para o visitante");
-                console.log(userCart);
                 setTimeout(async () => {
                     await createCart(); // Cria o carrinho do visitante
+                }, 1000);
+                setTimeout(() => {
+                    refetchUserCart();
+                    refetchCartItems();
                 }, 2000);
-                await refetchUserCart();
-                await refetchCartItems(); // Aguarda o refetch dos dados do carrinho
-                console.log("Devo adicionar um item ao carrinho");
                 setTimeout(async () => {
                     await addToCart(); // Adiciona o item ao carrinho
                 }, 2000);
                 setQuantity(1); // Volta quantidade para 1
             }
-            await refetchUserCart();
-            await refetchCartItems();
+            setTimeout(() => {
+                refetchUserCart();
+                refetchCartItems();
+            }, 1000);
         }
     };
 

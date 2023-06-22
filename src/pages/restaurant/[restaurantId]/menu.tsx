@@ -192,8 +192,10 @@ const RestaurantMenuPage: NextPage = () => {
             await removeCartItem({
                 cartItemId: itemId,
             });
-            await refetchUserCart();
-            await refetchCartItems();
+            setTimeout(() => {
+                refetchUserCart();
+                refetchCartItems();
+            }, 1000);
         } catch (error) {
             console.error("Erro ao remover Item", error);
         }
@@ -204,8 +206,10 @@ const RestaurantMenuPage: NextPage = () => {
             await clearCarrinho({
                 cartId: itemId,
             });
-            await refetchUserCart();
-            await refetchCartItems();
+            setTimeout(() => {
+                refetchUserCart();
+                refetchCartItems();
+            }, 1000);
         } catch (error) {
             console.error("Erro ao Limpar Carrinho Item", error);
         }
@@ -289,7 +293,7 @@ const RestaurantMenuPage: NextPage = () => {
                             onClick={() => userCart && limparCarrinho(userCart.id)}
                             type="button"
                         >
-                            Limpar Carrinho
+                            Limpar Resumo
                         </button>
                     </div>
                     <div className={classes.txtarea}>
