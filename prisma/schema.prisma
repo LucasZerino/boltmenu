@@ -111,5 +111,6 @@ model CartItem {
   menuItemId String?
   cart       Cart       @relation(fields: [cartId], references: [id])
   cartId     String
-  ownerId    String?     @unique
+  ownerId    String?   
+  itemName   String?
 }

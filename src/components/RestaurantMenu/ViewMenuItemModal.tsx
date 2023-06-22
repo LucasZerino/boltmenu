@@ -2,6 +2,7 @@ import type { FC } from "react";
 import React, { useEffect, useMemo, useState } from "react";
 
 import { Box, Button, createStyles, Stack, Text, useMantineTheme } from "@mantine/core";
+import { IconCheck, IconCornerUpLeftDouble } from "@tabler/icons";
 import { QueryClient, QueryClientProvider, useMutation, useQuery } from "react-query";
 
 import type { ModalProps } from "@mantine/core";
@@ -46,6 +47,18 @@ const useStyles = createStyles((theme) => ({
         minWidth: "80px",
         outline: "none",
         padding: "0",
+    },
+    adicionado: {
+        alignItems: "center",
+        display: "flex",
+        flexDirection: "column",
+        gap: "30px",
+        justifyContent: "center",
+        padding: "40px",
+    },
+    adicionadoTexto: {
+        color: "#535254",
+        textAlign: "center",
     },
     button: {
         backgroundColor: "transparent",
@@ -97,7 +110,6 @@ const useStyles = createStyles((theme) => ({
 
 /** Modal to view details of a selected menu item */
 export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
-    const queryClient = new QueryClient();
     const theme = useMantineTheme();
     const { classes } = useStyles();
 
@@ -153,29 +165,31 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
         };
 
         const addToCart = async () => {
+            console.log("deveria mostrar a notificação");
+            showNotificationWithTimeout();
             const itens = menuItem;
             const quantidade = quantity;
             const donoCarrinho = visitorId;
             const idItemMenu = itens?.id;
-
-            console.log("Quantidade: ", quantidade, "\nDono do carrinho: ", donoCarrinho, "\nId do item: ", idItemMenu);
-            console.log(cartItems, "esse é o cartItems");
-
+            const nomedoItem = itens?.name;
+            console.log(nomedoItem, "nome do item");
             try {
-                console.log("Item adicionado ao carrinho!", visitorId);
-                await addToCartMutate({
-                    customerId: donoCarrinho ?? "",
-                    menuItemId: idItemMenu ?? "",
-                    ownerId: visitorId ?? "",
-                    quantity: quantidade ?? "",
-                });
-                showNotificationWithTimeout();
+                if (nomedoItem) {
+                    await addToCartMutate({
+                        customerId: donoCarrinho ?? "",
+                        itemName: nomedoItem ?? "", // Adicione o itemName dentro do objeto data
+                        menuItemId: idItemMenu ?? "",
+                        ownerId: visitorId ?? "",
+                        quantity: quantidade ?? "",
+                    });
+                }
             } catch (error) {
                 console.error("Erro ao adicionar item no carrinho:", error);
             }
         };
 
         const editarQuantidade = async () => {
+            showNotificationWithTimeout();
             try {
                 const cartItem = cartItems?.find((item) => item.menuItemId === menuItem?.id);
                 const quantidade = cartItem ? cartItem.quantity + quantity : quantity;
@@ -193,29 +207,23 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
         // Devo verificar se o visitante tem um ID
         if (visitorId) {
             // Caso o visitante tenha um ID
-            console.log("O visitante tem um ID");
             if (userCart) {
-                console.log("O visitante já tem um carrinho");
-                console.log("Devo adicionar um item ao carrinho");
-                if (cartItems !== undefined && cartItems.length > 0) {
-                    console.log("Devo apenas alterar a quantidade do item no carrinho");
+                const id = menuItem?.id;
+                const itemEncontrado = cartItems?.find((item) => item.menuItemId === id);
+                if (cartItems !== undefined && cartItems.length > 0 && itemEncontrado) {
                     await editarQuantidade();
                 } else {
-                    console.log("Devo adicionar um item ao carrinho");
                     setTimeout(async () => {
                         await addToCart(); // Adiciona o item ao carrinho
                     }, 2000);
                 }
                 setQuantity(1); // Volta quantidade para 1
             } else {
-                console.log("Tive que criar um carrinho para o visitante");
-                console.log(userCart);
                 await createCart(); // Cria o carrinho do visitante
-                await Promise.all([refetchUserCart(), refetchCartItems()]); // Aguarda o refetch dos dados do carrinho
-                console.log("Devo adicionar um item ao carrinho");
                 setTimeout(async () => {
                     await addToCart(); // Adiciona o item ao carrinho
                 }, 2000);
+                await Promise.all([refetchUserCart(), refetchCartItems()]); // Aguarda o refetch dos dados do carrinho
                 setQuantity(1); // Volta quantidade para 1
             }
         } else {
@@ -243,53 +251,62 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
                 }, 2000);
                 setQuantity(1); // Volta quantidade para 1
             }
+            await Promise.all([refetchUserCart(), refetchCartItems()]);
         }
     };
 
     return (
         <Modal centered data-testid="menu-item-card-modal" styles={{ modal: { background: bgColor } }} {...rest}>
-            <Stack spacing="sm">
-                {menuItem?.image?.path && (
-                    <Box sx={{ borderRadius: theme.radius.lg, overflow: "hidden" }}>
-                        <ImageKitImage
-                            blurhash={menuItem?.image?.blurHash}
-                            height={400}
-                            imageAlt={menuItem?.name}
-                            imagePath={menuItem?.image?.path}
-                            width={400}
-                        />
-                    </Box>
-                )}
-                <div className={classes.teste}>
-                    <h1 className={classes.price}> R$ {menuItem?.price} </h1>
+            {showNotification && (
+                <div className={classes.adicionado}>
+                    <IconCheck color="green" size={56} />
+                    <p className={classes.adicionadoTexto}>Produto adicionado!</p>
                 </div>
-                <Text color={theme.black} opacity={0.6}>
-                    {menuItem?.description}
-                </Text>
-
-                <div className={classes.stylecart}>
-                    <Button className={classes.stylebutton} color="#039999" fullWidth onClick={handleAddToCart}>
-                        Adicionar
-                    </Button>
-                    <div className={classes.addchart}>
-                        <button
-                            className={classes.button}
-                            onClick={() => {
-                                if (quantity > 1) {
-                                    setQuantity(quantity - 1);
-                                }
-                            }}
-                            type="button"
-                        >
-                            -
-                        </button>
-                        <h1 className={classes.description}>{quantity}</h1>
-                        <button className={classes.button1} onClick={() => setQuantity(quantity + 1)} type="button">
-                            +
-                        </button>
+            )}
+            {!showNotification && (
+                <Stack spacing="sm">
+                    {menuItem?.image?.path && (
+                        <Box sx={{ borderRadius: theme.radius.lg, overflow: "hidden" }}>
+                            <ImageKitImage
+                                blurhash={menuItem?.image?.blurHash}
+                                height={400}
+                                imageAlt={menuItem?.name}
+                                imagePath={menuItem?.image?.path}
+                                width={400}
+                            />
+                        </Box>
+                    )}
+                    <div className={classes.teste}>
+                        <h1 className={classes.price}> R$ {menuItem?.price} </h1>
                     </div>
-                </div>
-            </Stack>
+                    <Text color={theme.black} opacity={0.6}>
+                        {menuItem?.description}
+                    </Text>
+
+                    <div className={classes.stylecart}>
+                        <Button className={classes.stylebutton} color="#039999" fullWidth onClick={handleAddToCart}>
+                            Adicionar
+                        </Button>
+                        <div className={classes.addchart}>
+                            <button
+                                className={classes.button}
+                                onClick={() => {
+                                    if (quantity > 1) {
+                                        setQuantity(quantity - 1);
+                                    }
+                                }}
+                                type="button"
+                            >
+                                -
+                            </button>
+                            <h1 className={classes.description}>{quantity}</h1>
+                            <button className={classes.button1} onClick={() => setQuantity(quantity + 1)} type="button">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                </Stack>
+            )}
         </Modal>
     );
 };

@@ -22,6 +22,7 @@ import { useTranslations } from "next-intl";
 import type { Category, Image, Menu, MenuItem, Restaurant } from "@prisma/client";
 
 import { Black, White } from "src/styles/theme";
+import { api } from "src/utils/api";
 
 import { MenuItemCard } from "./MenuItemCard";
 import { Empty } from "../Empty";
@@ -120,6 +121,19 @@ export const RestaurantMenu: FC<Props> = ({ restaurant }) => {
     const [menuParent] = useAutoAnimate<HTMLDivElement>();
     const [selectedMenu, setSelectedMenu] = useState<string | null | undefined>(restaurant?.menus?.[0]?.id);
     const t = useTranslations("menu");
+    const [showCart, setShowCart] = useState(false);
+    const visitorId = typeof window !== "undefined" ? window.localStorage.getItem("visitorId") : null;
+    const { data: userCart, refetch: refetchUserCart } = api.cart.get.useQuery(
+        {
+            cartId: visitorId as string,
+        },
+        {
+            enabled: !!visitorId, // Ativa a query somente se o visitorId estiver disponível
+        }
+    );
+    const { data: cartItems, refetch: refetchCartItems } = api.cartItem.getAll.useQuery({
+        cartId: userCart?.id as string, // Use o ID do carrinho obtido em userCart
+    });
 
     const menuDetails = useMemo(
         () => restaurant?.menus?.find((item) => item.id === selectedMenu),

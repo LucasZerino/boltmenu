@@ -10,6 +10,7 @@ interface Props extends ModalProps {
 
 export const Modal: FC<Props> = ({ loading = false, ...rest }) => {
     const theme = useMantineTheme();
+
     return (
         <MantineModal
             closeOnClickOutside={!loading}

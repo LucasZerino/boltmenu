@@ -1,4 +1,19 @@
-import { Container } from "@mantine/core";
+import React, { useEffect, useMemo, useState } from "react";
+
+import {
+    ActionIcon,
+    Box,
+    Container,
+    createStyles,
+    Flex,
+    MediaQuery,
+    SimpleGrid,
+    Stack,
+    Tabs,
+    Text,
+    useMantineColorScheme,
+} from "@mantine/core";
+import { IconBackhoe, IconClipboardList, IconMenu, IconMenuOrder, IconShoppingCart } from "@tabler/icons";
 import { createProxySSGHelpers } from "@trpc/react-query/ssg";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
@@ -8,6 +23,7 @@ import superjson from "superjson";
 
 import type { GetStaticPropsContext, NextPage } from "next";
 
+import { IconCard, ImageCard } from "src/components/Cards";
 import { Empty } from "src/components/Empty";
 import { Footer } from "src/components/Footer";
 import { RestaurantMenu } from "src/components/RestaurantMenu";
@@ -16,46 +32,228 @@ import { appRouter } from "src/server/api/root";
 import { createInnerTRPCContext } from "src/server/api/trpc";
 import { api } from "src/utils/api";
 
+const useStyles = createStyles((theme) => ({
+    carrinho: {
+        alignSelf: "flex-start",
+        color: "#535254",
+        fontSize: "15px",
+        marginBottom: "0px",
+        marginLeft: "20px",
+        marginTop: "50px",
+    },
+    itens: {
+        alignItems: "center",
+        borderBottom: "2px solid #9AA5B1",
+        display: "flex",
+        justifyContent: "space-around",
+        minWidth: "100%",
+    },
+    itensh1: {
+        color: "#1F2933",
+        fontSize: "17px",
+    },
+    itensh2: {
+        color: "#1F2933",
+        fontSize: "17px",
+    },
+    itensh3: {
+        color: "#1F2933",
+        fontSize: "17px",
+    },
+    linha: {
+        background: "#9AA5B1",
+        height: "2px",
+        margin: "0",
+        width: "100%",
+    },
+    obsText: {
+        fontSize: "15px",
+        marginTop: "50px",
+    },
+    resumo: {
+        alignItems: "center",
+        background: "#039999",
+        bottom: "0",
+        cursor: "pointer",
+        display: "flex",
+        gap: "10px",
+        justifyContent: "center",
+        left: "0",
+        position: "absolute",
+        width: "100%",
+    },
+    resumoContainer: {
+        alignItems: "center",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        paddingLeft: "20px",
+        paddingRight: "20px",
+        paddingTop: "50px",
+    },
+    resumoTexto: {
+        color: "white",
+        fontSize: "18px",
+        textAlign: "center",
+    },
+    resumoTexto2: {
+        color: "white",
+        fontSize: "18px",
+        textAlign: "center",
+    },
+    resumoTitle: {
+        color: "#535254",
+    },
+    textarea: {
+        backgroundColor: "#f8f8f8",
+        border: "2px solid #ccc",
+        borderRadius: "4px",
+        boxSizing: "border-box",
+        fontSize: "16px",
+        height: "150px",
+        resize: "none",
+    },
+    txtarea: {
+        display: "flex",
+        flexDirection: "column",
+        maxWidth: "90%",
+    },
+}));
+
 /** Restaurant menu page that will be shared publicly */
 const RestaurantMenuPage: NextPage = () => {
     const router = useRouter();
     const { status } = useSession();
     const restaurantId = router.query?.restaurantId as string;
     const t = useTranslations("menu");
-
     const { data: restaurant } = api.restaurant.getDetails.useQuery(
         { id: restaurantId },
         { enabled: status === "authenticated" && !!restaurantId }
     );
 
+    const [showCart, setShowCart] = useState(false);
+    const [showResumo, setShowResumo] = useState(false);
+    const visitorId = typeof window !== "undefined" ? window.localStorage.getItem("visitorId") : null;
+    const { data: userCart, refetch: refetchUserCart } = api.cart.get.useQuery(
+        {
+            cartId: visitorId as string,
+        },
+        {
+            enabled: !!visitorId, // Ativa a query somente se o visitorId estiver disponível
+        }
+    );
+    const { data: cartItems, refetch: refetchCartItems } = api.cartItem.getAll.useQuery({
+        cartId: userCart?.id as string, // Use o ID do carrinho obtido em userCart
+    });
+
+    const { classes, theme } = useStyles();
+
+    useEffect(() => {
+        // Verifica se existe um carrinho e atualiza o estado de showCart
+        if (userCart?.id) {
+            setShowCart(true);
+        }
+    }, [userCart]);
+
+    const [observacoes, setObservacoes] = useState("");
+
+    const handleShowResumo = () => {
+        setShowResumo(true);
+        refetchCartItems();
+        refetchUserCart(); // Atualiza o carrinho
+    };
+
     return (
         <>
-            <NextSeo
-                description={`${t("seoDescription.restaurantName", { name: restaurant?.name })}. ${t(
-                    "seoDescription.restaurantLocation",
-                    { location: restaurant?.location }
-                )}${
-                    restaurant?.contactNo
-                        ? t("seoDescription.restaurantContactNo", { contactNo: restaurant?.contactNo })
-                        : ""
-                } ${t("seoDescription.menufic")}`}
-                openGraph={{
-                    images: [{ url: `${env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/${restaurant?.image?.path}` }],
-                    type: "restaurant.menu",
-                }}
-                themeColor={restaurant?.image?.color}
-                title={t("seoTitle", { name: restaurant?.name })}
-            />
-            <main>
-                <Container py="lg" size="xl">
-                    {restaurant && restaurant?.isPublished === true ? (
-                        <RestaurantMenu restaurant={restaurant} />
-                    ) : (
-                        <Empty height="calc(100vh - 100px)" text={t("noDetailsAvailable")} />
+            {!showResumo && (
+                <>
+                    <NextSeo
+                        description={`${t("seoDescription.restaurantName", { name: restaurant?.name })}. ${t(
+                            "seoDescription.restaurantLocation",
+                            { location: restaurant?.location }
+                        )}${
+                            restaurant?.contactNo
+                                ? t("seoDescription.restaurantContactNo", { contactNo: restaurant?.contactNo })
+                                : ""
+                        } ${t("seoDescription.menufic")}`}
+                        openGraph={{
+                            images: [{ url: `${env.NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT}/${restaurant?.image?.path}` }],
+                            type: "restaurant.menu",
+                        }}
+                        themeColor={restaurant?.image?.color}
+                        title={t("seoTitle", { name: restaurant?.name })}
+                    />
+                    <main>
+                        <Container py="lg" size="xl">
+                            {restaurant && restaurant?.isPublished === true ? (
+                                <RestaurantMenu restaurant={restaurant} />
+                            ) : (
+                                <Empty height="calc(100vh - 100px)" text={t("noDetailsAvailable")} />
+                            )}
+                        </Container>
+                    </main>
+                    {showCart && (
+                        <Box>
+                            <div
+                                className={classes.resumo}
+                                onClick={handleShowResumo}
+                                onKeyPress={(e) => {
+                                    if (e.key === "Enter" || e.key === " ") {
+                                        setShowResumo(true);
+                                    }
+                                }}
+                                role="button"
+                                tabIndex={0}
+                            >
+                                <h1 className={classes.resumoTexto}>Ver resumo</h1>
+                                <IconShoppingCart color="white" />
+                            </div>
+                        </Box>
                     )}
-                </Container>
-            </main>
-            <Footer />
+                    {!showCart && <Footer />}
+                </>
+            )}
+            {showResumo && (
+                <div className={classes.resumoContainer}>
+                    <div className={classes.resumoTitle}>
+                        Resumo do pedido <br />
+                        {restaurant?.name}
+                    </div>
+                    <h1 className={classes.carrinho}>Itens escolhidos</h1>
+                    <div className={classes.linha} />
+                    {cartItems?.map((item) => (
+                        <div key={item.id} className={classes.itens}>
+                            <h1 className={classes.itensh1}>{item?.itemName}</h1>
+                            <h1 className={classes.itensh3}>-</h1>
+                            <h2 className={classes.itensh2}>x{item?.quantity}</h2>
+                        </div>
+                    ))}
+                    <div className={classes.txtarea}>
+                        <h1 className={classes.obsText}>Observações:</h1>
+                        <textarea
+                            className={classes.textarea}
+                            cols={50}
+                            onChange={(e) => setObservacoes(e.target.value)}
+                            rows={4}
+                            value={observacoes}
+                        />
+                    </div>
+                    <div
+                        className={classes.resumo}
+                        onClick={() => setShowResumo(false)}
+                        onKeyPress={(e) => {
+                            if (e.key === "Enter" || e.key === " ") {
+                                setShowResumo(false);
+                            }
+                        }}
+                        role="button"
+                        tabIndex={0}
+                    >
+                        <h1 className={classes.resumoTexto2}>Voltar para o menu</h1>
+                        <IconClipboardList color="white" />
+                    </div>
+                </div>
+            )}
         </>
     );
 };

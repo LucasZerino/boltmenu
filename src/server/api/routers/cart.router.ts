@@ -8,13 +8,14 @@ export const cartRouter = createTRPCRouter({
         .input(
             z.object({
                 customerId: z.string(),
+                itemName: z.string(),
                 menuItemId: z.string(),
                 ownerId: z.string(),
                 quantity: z.number().positive(),
             })
         )
         .mutation(async ({ ctx, input }) => {
-            const { customerId, menuItemId, quantity, ownerId } = input;
+            const { customerId, menuItemId, quantity, ownerId, itemName } = input;
 
             const cart = await ctx.prisma.cart.findUnique({
                 where: {
@@ -49,6 +50,7 @@ export const cartRouter = createTRPCRouter({
 
             const data = {
                 cartId: cart.id,
+                itemName,
                 menuItemId: item.id,
                 ownerId,
                 quantity,
