@@ -100,7 +100,7 @@ const useStyles = createStyles((theme) => ({
         gap: "10px",
         justifyContent: "center",
         left: "0",
-        position: "absolute",
+        position: "fixed",
         width: "100%",
     },
     resumoContainer: {
@@ -152,7 +152,7 @@ const RestaurantMenuPage: NextPage = () => {
         { enabled: status === "authenticated" && !!restaurantId }
     );
 
-    const [showCart, setShowCart] = useState(false);
+    const [showCart, setShowCart] = useState(true);
     const [showResumo, setShowResumo] = useState(false);
     const visitorId = typeof window !== "undefined" ? window.localStorage.getItem("visitorId") : null;
     const { data: userCart, refetch: refetchUserCart } = api.cart.get.useQuery(

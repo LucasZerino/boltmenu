@@ -22,7 +22,7 @@ const useStyles = createStyles(() => ({
         objectFit: "cover",
         position: "relative",
         width: "100%",
-        zIndex: 1,
+        zIndex: 0,
     },
     itemImageWrap: { display: "block", overflow: "hidden", position: "relative" },
 }));
