@@ -81,6 +81,10 @@ const useStyles = createStyles((theme) => ({
     description: {
         fontSize: "15px",
     },
+    menuItemName: {
+        fontSize: "20px",
+        textAlign: "center",
+    },
     numberconter: {
         marginTop: "40px",
     },
@@ -268,6 +272,7 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
                 <Stack spacing="sm">
                     {menuItem?.image?.path && (
                         <Box sx={{ borderRadius: theme.radius.lg, overflow: "hidden" }}>
+                            <h1 className={classes.menuItemName}>{menuItem?.name}</h1>
                             <ImageKitImage
                                 blurhash={menuItem?.image?.blurHash}
                                 height={400}

@@ -50,8 +50,8 @@ const useStyles = createStyles((theme, { imageColor }: StyleProps, getRef) => {
             transition: "all 500ms ease",
             [`&:hover .${image}`]: { transform: "scale(1.05)" },
         },
-        cardItemDesc: { WebkitLineClamp: 3 },
-        cardItemTitle: { WebkitLineClamp: 1 },
+        cardItemDesc: { WebkitLineClamp: 2 },
+        cardItemTitle: { WebkitLineClamp: 3 },
         cardText: {
             WebkitBoxOrient: "vertical",
             color: "#3B3B3B",
@@ -103,10 +103,10 @@ export const MenuItemCard: FC<Props> = ({ item }) => {
                 )}
 
                 <Stack className={classes.cardDescWrap}>
-                    <Text className={cx(classes.cardText, classes.cardItemTitle)} size="lg" weight={700}>
+                    <Text className={cx(classes.cardText, classes.cardItemTitle)} size="sm" weight={700}>
                         {item.name}
                     </Text>
-                    <Text color="#55A977" size="sm">
+                    <Text color="#55A977" size="xs">
                         R$ {item.price}
                         <span className={classes.increase}>
                             {" "}
