@@ -169,12 +169,67 @@ const RestaurantMenuPage: NextPage = () => {
 
     const { classes, theme } = useStyles();
 
-    useEffect(() => {
-        // Verifica se existe um carrinho e atualiza o estado de showCart
-        if (userCart?.id) {
-            setShowCart(true);
+    function generateRandomId() {
+        const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        const length = 10;
+        let randomId = "";
+
+        for (let i = 0; i < length; i += 1) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            randomId += characters.charAt(randomIndex);
         }
-    }, [userCart]);
+        return randomId;
+    }
+
+    const { mutate } = api.cart.create.useMutation();
+
+    const createCart = async (item: string) => {
+        // Função para criar um carrinho com um item
+        try {
+            await mutate({
+                customerId: item ?? "",
+            });
+            await refetchUserCart();
+            await refetchCartItems();
+        } catch (error) {
+            console.error("Erro ao criar o carrinho:", error);
+        }
+    };
+
+    useEffect(() => {
+        const fetchVisitorData = async () => {
+            const visitorId = typeof window !== "undefined" ? window.localStorage.getItem("visitorId") : null;
+            const userCartData = await refetchUserCart(); // Aguarde a conclusão da chamada para atualizar o valor de userCart
+            const userCart = userCartData.data; // Supondo que o valor seja retornado em userCartData.data
+
+            if (!visitorId) {
+                const generatedVisitorId = generateRandomId(); // Gere um ID aleatório aqui
+                if (typeof window !== "undefined") {
+                    window.localStorage.setItem("visitorId", generatedVisitorId);
+                }
+            }
+
+            const updatedVisitorId = typeof window !== "undefined" ? window.localStorage.getItem("visitorId") : null;
+
+            if (updatedVisitorId) {
+                const updatedUserCartData = await refetchUserCart(); // Aguarde a conclusão da chamada para atualizar o valor de userCart
+                const updatedUserCart = updatedUserCartData.data; // Supondo que o valor seja retornado em updatedUserCartData.data
+
+                if (!updatedUserCart) {
+                    setTimeout(async () => {
+                        await createCart(updatedVisitorId); // Cria o carrinho do visitante
+                        setTimeout(async () => {
+                            await refetchUserCart();
+                            const updatedCartData = await refetchCartItems(); // Recarrega tudo
+                            const updatedCart = updatedCartData.data; // Supondo que o valor seja retornado em updatedCartData.data
+                        }, 2000);
+                    }, 3000);
+                }
+            }
+        };
+
+        fetchVisitorData();
+    }, []);
 
     const [observacoes, setObservacoes] = useState("");
 
@@ -192,10 +247,8 @@ const RestaurantMenuPage: NextPage = () => {
             await removeCartItem({
                 cartItemId: itemId,
             });
-            setTimeout(() => {
-                refetchUserCart();
-                refetchCartItems();
-            }, 1000);
+            await refetchUserCart();
+            await refetchCartItems();
         } catch (error) {
             console.error("Erro ao remover Item", error);
         }
@@ -206,10 +259,8 @@ const RestaurantMenuPage: NextPage = () => {
             await clearCarrinho({
                 cartId: itemId,
             });
-            setTimeout(() => {
-                refetchUserCart();
-                refetchCartItems();
-            }, 1000);
+            await refetchUserCart();
+            await refetchCartItems();
         } catch (error) {
             console.error("Erro ao Limpar Carrinho Item", error);
         }

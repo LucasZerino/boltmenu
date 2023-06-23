@@ -157,10 +157,8 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
                 await mutate({
                     customerId: visitorId ?? "",
                 });
-                setTimeout(() => {
-                    refetchUserCart();
-                    refetchCartItems();
-                }, 1000);
+                await refetchUserCart();
+                await refetchCartItems(); // Aguarda o refetch dos dados do carrinho
             } catch (error) {
                 console.error("Erro ao criar o carrinho:", error);
             }
@@ -183,10 +181,8 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
                         quantity: quantidade ?? "",
                     });
                 }
-                setTimeout(() => {
-                    refetchUserCart();
-                    refetchCartItems();
-                }, 1000);
+                await refetchUserCart();
+                await refetchCartItems();
             } catch (error) {
                 console.error("Erro ao adicionar item no carrinho:", error);
             }
@@ -205,10 +201,8 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
                         quantity: quantidade,
                     });
                 }
-                setTimeout(() => {
-                    refetchUserCart();
-                    refetchCartItems();
-                }, 1000);
+                await refetchUserCart();
+                await refetchCartItems();
             } catch (error) {
                 console.error("Erro ao editar a quantidade de itens", error);
             }
@@ -232,11 +226,9 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
                 await createCart(); // Cria o carrinho do visitante
                 setTimeout(async () => {
                     await addToCart(); // Adiciona o item ao carrinho
-                }, 1000);
-                setTimeout(() => {
-                    refetchUserCart();
-                    refetchCartItems();
                 }, 2000);
+                await refetchUserCart();
+                await refetchCartItems(); // Aguarda o refetch dos dados do carrinho
                 setQuantity(1); // Volta quantidade para 1
             }
         } else {
@@ -251,20 +243,16 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
             } else {
                 setTimeout(async () => {
                     await createCart(); // Cria o carrinho do visitante
-                }, 1000);
-                setTimeout(() => {
-                    refetchUserCart();
-                    refetchCartItems();
                 }, 2000);
+                await refetchUserCart();
+                await refetchCartItems(); // Aguarda o refetch dos dados do carrinho
                 setTimeout(async () => {
                     await addToCart(); // Adiciona o item ao carrinho
                 }, 2000);
                 setQuantity(1); // Volta quantidade para 1
             }
-            setTimeout(() => {
-                refetchUserCart();
-                refetchCartItems();
-            }, 1000);
+            await refetchUserCart();
+            await refetchCartItems();
         }
     };
 

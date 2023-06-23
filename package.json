@@ -8,7 +8,7 @@
         "postinstall": "patch-package && prisma generate",
         "lint": "next lint",
         "lint:fix": "next lint --fix",
-        "start": "next start",
+        "start": "next start -p 3996",
         "test:e2e": "playwright test",
         "tsc": "tsc --noEmit --incremental",
         "format-rest": "npx prettier --ignore-path .gitignore --write \"**/*.{css,md,json,yml}\" \"!package-lock.json\""
