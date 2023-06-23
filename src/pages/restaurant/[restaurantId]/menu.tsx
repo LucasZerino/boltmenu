@@ -171,7 +171,7 @@ const RestaurantMenuPage: NextPage = () => {
 
     function generateRandomId() {
         const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        const length = 10;
+        const length = 20;
         let randomId = "";
 
         for (let i = 0; i < length; i += 1) {
@@ -249,6 +249,10 @@ const RestaurantMenuPage: NextPage = () => {
             });
             await refetchUserCart();
             await refetchCartItems();
+            setTimeout(() => {
+                refetchUserCart();
+                refetchCartItems();
+            }, 1500);
         } catch (error) {
             console.error("Erro ao remover Item", error);
         }
@@ -261,6 +265,10 @@ const RestaurantMenuPage: NextPage = () => {
             });
             await refetchUserCart();
             await refetchCartItems();
+            setTimeout(() => {
+                refetchUserCart();
+                refetchCartItems();
+            }, 1500);
         } catch (error) {
             console.error("Erro ao Limpar Carrinho Item", error);
         }

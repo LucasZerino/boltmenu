@@ -155,6 +155,7 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
     });
 
     const handleAddToCart = async () => {
+        showNotificationWithTimeout();
         const createCart = async () => {
             // Função para criar um carrinho
             try {
@@ -169,7 +170,6 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
         };
 
         const addToCart = async () => {
-            showNotificationWithTimeout();
             const itens = menuItem;
             const quantidade = quantity;
             const donoCarrinho = visitorId;
@@ -193,7 +193,6 @@ export const ViewMenuItemModal: FC<Props> = ({ menuItem, ...rest }) => {
         };
 
         const editarQuantidade = async () => {
-            showNotificationWithTimeout();
             try {
                 const cartItem = cartItems?.find((item) => item.menuItemId === menuItem?.id);
                 const quantidade = cartItem ? cartItem.quantity + quantity : quantity;

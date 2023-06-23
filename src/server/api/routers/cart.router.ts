@@ -4,7 +4,7 @@ import { createTRPCRouter, protectedProcedure, publicProcedure } from "src/serve
 
 export const cartRouter = createTRPCRouter({
     /** Adicionar um item ao carrinho */
-    addItem: protectedProcedure
+    addItem: publicProcedure
         .input(
             z.object({
                 customerId: z.string(),
@@ -64,7 +64,7 @@ export const cartRouter = createTRPCRouter({
         }),
 
     /** Criar um carrinho */
-    create: protectedProcedure.input(z.object({ customerId: z.string() })).mutation(async ({ ctx, input }) => {
+    create: publicProcedure.input(z.object({ customerId: z.string() })).mutation(async ({ ctx, input }) => {
         if (!input.customerId) {
             throw new Error("ID do cliente não fornecido");
         }
@@ -89,7 +89,7 @@ export const cartRouter = createTRPCRouter({
     }),
 
     /** Excluir um carrinho */
-    delete: protectedProcedure.input(z.object({ cartId: z.string() })).mutation(async ({ ctx, input }) => {
+    delete: publicProcedure.input(z.object({ cartId: z.string() })).mutation(async ({ ctx, input }) => {
         const cart = await ctx.prisma.cart.findUnique({
             where: {
                 id: input.cartId,

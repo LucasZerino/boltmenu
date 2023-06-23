@@ -4,7 +4,7 @@ import { createTRPCRouter, protectedProcedure, publicProcedure } from "src/serve
 
 export const cartItemRouter = createTRPCRouter({
     /** Editar a quantidade de um item no carrinho */
-    editQuantity: protectedProcedure
+    editQuantity: publicProcedure
         .input(
             z.object({
                 cartId: z.string(),
@@ -52,7 +52,7 @@ export const cartItemRouter = createTRPCRouter({
     }),
 
     /** Remover um item do carrinho */
-    remove: protectedProcedure
+    remove: publicProcedure
         .input(
             z.object({
                 cartItemId: z.string(),
@@ -81,7 +81,7 @@ export const cartItemRouter = createTRPCRouter({
         }),
 
     /** Remover todos os itens do carrinho */
-    removeAll: protectedProcedure.input(z.object({ cartId: z.string() })).mutation(async ({ ctx, input }) => {
+    removeAll: publicProcedure.input(z.object({ cartId: z.string() })).mutation(async ({ ctx, input }) => {
         const { cartId } = input;
 
         await ctx.prisma.cartItem.deleteMany({
